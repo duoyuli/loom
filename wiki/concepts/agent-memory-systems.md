@@ -11,7 +11,8 @@ sources:
   - ../sources/2026-04-13-深度解析-openclaw-在-prompt-context-harness-三个维度中的设计哲学与实践.md
   - ../sources/2026-04-15-hermes-凭什么两个月接棒-openclaw.md
   - ../sources/2026-04-06-the-anatomy-of-an-agent-harness.md
-updated: 2026-04-19
+  - ../sources/2026-04-08-systems-engineering-building-agentic-software-that-works系统工程-构建能工作的代理软件.md
+updated: 2026-05-21
 ---
 
 Agent 记忆系统指的是 Agent 在当前上下文窗口之外，用来持续保存、检索和重用状态的一整套机制。它不是单个"记忆库"或单次向量检索，而是同时包含写入规则、存储分层、检索策略、整理与遗忘机制、治理层和跨时间演化表示的外部状态层。Memory 的核心不是"把过去留下来"，而是**治理过去如何进入现在**。
@@ -153,6 +154,12 @@ Reflexion、ExpeL、ReMe 等工作都在回答同一个问题：经历如何不�
 - 这条样板的价值，不只是再次证明“记忆应分层”，而是补上一条更谨慎的使用原则：Agent 对自己的记忆更适合持“提示线索”态度，而不是把回忆结果直接当成当前事实。
 - 换言之，记忆系统负责提高连续性和找回率，但行动前仍应尽量回到真实环境、真实文件或真实状态做核验；否则系统只是在更高效地复用旧判断。
 
+## 新增视角：记忆也是数据工程
+
+- 新摄入的系统工程来源把 Agent 记忆明确拉回数据工程：Memory、storage、knowledge 和 context 都应有 schema、结构化查询、数据库、对象存储和持续更新管道。
+- 这与本页的治理层判断互补：如果记忆只是共享沙箱里的文件，系统很容易在权限隔离、审计、跨用户泄漏和生命周期管理上欠账。
+- Dash 案例还提供了一条实践线索：错误模式、修复方式、新建视图 schema 和示例查询都可以作为“学习记录”写回数据层；Agent 变好并不是因为模型权重变了，而是上下文数据层变好了。
+
 ## 评估
 
 Memory 的评估不应只测"能否想起"，还要测：
@@ -193,6 +200,7 @@ Memory 的评估不应只测"能否想起"，还要测：
 - [深度解析 OpenClaw 在 Prompt / Context / Harness 三个维度中的设计哲学与实践](../sources/2026-04-13-深度解析-openclaw-在-prompt-context-harness-三个维度中的设计哲学与实践.md)
 - [Hermes 凭什么两个月接棒 OpenClaw？](../sources/2026-04-15-hermes-凭什么两个月接棒-openclaw.md)
 - [The Anatomy of an Agent Harness](../sources/2026-04-06-the-anatomy-of-an-agent-harness.md)
+- [Systems Engineering: Building Agentic Software That Works系统工程：构建能工作的代理软件](../sources/2026-04-08-systems-engineering-building-agentic-software-that-works系统工程-构建能工作的代理软件.md)
 
 ## 开放问题
 

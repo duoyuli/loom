@@ -16,7 +16,8 @@ sources:
   - ../sources/2026-03-19-你不知道的-agent-原理-架构与工程实践.md
   - ../sources/2026-04-06-the-anatomy-of-an-agent-harness.md
   - ../sources/2026-04-23-从第一性原理思考-agentic-engineering.md
-updated: 2026-04-24
+  - ../sources/2026-04-08-systems-engineering-building-agentic-software-that-works系统工程-构建能工作的代理软件.md
+updated: 2026-05-21
 ---
 
 Harness Engineering 指的是为 Agent 搭建一套可执行的约束体系，让模型输出被规则、测试、反馈和清理流程持续塑形，而不是只靠提示词或人工兜底。
@@ -147,6 +148,12 @@ OpenClaw 的资料把这件事进一步写实：Harness 不只是“有规则”
 - 这份资料还把验证拆成四层：意图层的需求/设计 Review，实施层的 Code Review，行为层的自动化测试，系统层的集成、性能与安全测试。测试通过只是其中一层，不能替代架构一致性、非功能性约束和设计意图检查。
 - 这与既有 Harness 主题互补：此前更强调模型外部控制面和持续控盘，这次补上“为什么不能整包放权、为什么不能只看测试绿灯”的第一性原理解释。
 
+## 新增视角：Harness 不应吞掉整个系统工程
+
+- 新摄入的系统工程来源提醒，很多 Agent 可靠性问题并不是“再加一层 Harness”就能解决，而是数据、安全、接口和基础设施边界没有设计清楚。
+- 例如只读权限应落在数据库连接、工具配置和 RBAC 上，而不是写成 prompt 指令；用户隔离应落在身份、作用域和审计日志上，而不是依赖模型自觉。
+- 这让 Harness 的边界更清楚：它负责把非确定性模型接入确定性交付链，但不应把数据建模、权限系统、身份映射和部署弹性都混成同一团外壳逻辑。
+
 ## 与其他概念的关系
 
 - [Agentic Engineering](agentic-engineering.md) 把 Harness 视为复杂约束下可靠协作的必要组成，尤其用于控制概率性输出和错误累积。
@@ -158,6 +165,7 @@ OpenClaw 的资料把这件事进一步写实：Harness 不只是“有规则”
 - [Jagged Intelligence](jagged-intelligence.md) 解释了为什么不能把局部高表现误读成稳定可靠的全局能力，这正是 harness 需要存在的原因之一。
 - [Agent 训练](agent-training.md) 说明类似问题也发生在训练侧，而不只是部署侧。
 - [大模型训练流水线](llm-training-pipeline.md) 提供了更大的背景：外层程序本身正在成为训练栈的一部分。
+- [Agentic Engineering](agentic-engineering.md) 的系统工程视角补充了 Harness 的外部边界：Agent、数据、安全、接口和基础设施应分别有自己的强约束。
 
 ## 对本知识库的启发
 
@@ -185,3 +193,4 @@ OpenClaw 的资料把这件事进一步写实：Harness 不只是“有规则”
 - [你不知道的 Agent：原理、架构与工程实践](../sources/2026-03-19-你不知道的-agent-原理-架构与工程实践.md)
 - [The Anatomy of an Agent Harness](../sources/2026-04-06-the-anatomy-of-an-agent-harness.md)
 - [从第一性原理思考 Agentic Engineering](../sources/2026-04-23-从第一性原理思考-agentic-engineering.md)
+- [Systems Engineering: Building Agentic Software That Works系统工程：构建能工作的代理软件](../sources/2026-04-08-systems-engineering-building-agentic-software-that-works系统工程-构建能工作的代理软件.md)

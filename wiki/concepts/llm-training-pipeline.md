@@ -4,7 +4,8 @@ type: concept
 status: active
 sources:
   - ../sources/2026-04-03-you-dont-know-llm-training-principles-paths-new-practices.md
-updated: 2026-04-15
+  - ../sources/2026-05-03-how-llm-inference-works.md
+updated: 2026-05-21
 ---
 
 大模型训练流水线指的是：模型能力不是由单次预训练独立决定的，而是由预训练、数据工程、系统约束、后训练、评测奖励、Agent 训练和部署反馈共同塑形的一整条链路。
@@ -32,12 +33,14 @@ updated: 2026-04-15
 - 到了 [Agent 训练](agent-training.md)，训练目标扩展为长轨迹任务表现，而不只是单轮回答正确率。
 - 工具环境、上下文裁剪、检索、记忆更新和 harness program 一起进入优化范围。
 - 发布后的蒸馏、专用化和生产流量回灌，说明训练栈在部署后仍持续运行。
+- 推理系统则是部署反馈中的另一条硬约束：`prefill / decode`、KV cache、量化、continuous batching 和 speculative decoding 会决定模型能以什么成本、延迟和并发形态被交付给用户。
 
 ## 这份资料带来的关键判断
 
 - 解释模型进步时，不能只看参数量和预训练数据规模。
 - 用户感知到的“更会用工具”“更听指令”“更稳定”，往往来自后训练、奖励设计和外层 harness。
 - 发布版本本身也是产品决策，不一定等于训练曲线最右端的 checkpoint。
+- 用户感知到的“更快”也不一定来自模型能力提升；可能来自 serving 栈、KV cache 管理、量化策略或批处理调度。
 
 ## 与其他概念的关系
 
@@ -59,3 +62,4 @@ updated: 2026-04-15
 ## 来源
 
 - [你不知道的大模型训练：原理、路径与新实践](../sources/2026-04-03-you-dont-know-llm-training-principles-paths-new-practices.md)
+- [How LLM Inference Works](../sources/2026-05-03-how-llm-inference-works.md)

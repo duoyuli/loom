@@ -2,7 +2,7 @@
 title: 来源索引
 type: source-index
 status: active
-updated: 2026-05-21
+updated: 2026-05-22
 ---
 
 本页是 `wiki/sources/` 的来源注册表与第一检索入口。它的职责不是重复每个来源页正文，而是显式登记 raw 路径、当前 source 页、canonical 路径、日期依据和迁移状态，避免写作、分析和巡检时只能靠猜文件名。
@@ -10,7 +10,7 @@ updated: 2026-05-21
 ## 使用约定
 
 - 新增或查找来源时，先看本页，再进入具体 source 页。
-- 当前注册表中的 27 条来源都已经迁到 canonical 路径；后续新增来源也应直接以 canonical 路径入库。
+- 当前注册表中的 28 条来源都已经迁到 canonical 路径；后续新增来源也应直接以 canonical 路径入库。
 - 如果未来再次出现遗留路径，仍用 `migration_status` 显式标记，而不是靠约定猜测。
 - `source_date_basis` 仅有两种：`published` 表示已知资料发布日期，`created` 表示发布日期未知，暂用 `raw/sources/` 文件创建时间兜底。
 
@@ -19,6 +19,7 @@ updated: 2026-05-21
 | source_date | basis | title | current_wiki_path | canonical_wiki_path | raw_path | migration_status |
 | --- | --- | --- | --- | --- | --- | --- |
 | 2026-05-21 | published | 当我们谈论 FDE 时，我们在谈论什么？ | [2026-05-21-当我们谈论-fde-时-我们在谈论什么.md](2026-05-21-当我们谈论-fde-时-我们在谈论什么.md) | `wiki/sources/2026-05-21-当我们谈论-fde-时-我们在谈论什么.md` | `raw/sources/当我们谈论 FDE 时，我们在谈论什么？.md` | `canonical` |
+| 2026-05-19 | published | 一文看懂 KV Cache 和 Prompt Cache 到底差在哪 | [2026-05-19-一文看懂-kv-cache-和-prompt-cache-到底差在哪.md](2026-05-19-一文看懂-kv-cache-和-prompt-cache-到底差在哪.md) | `wiki/sources/2026-05-19-一文看懂-kv-cache-和-prompt-cache-到底差在哪.md` | `raw/sources/一文看懂 KV Cache 和 Prompt Cache 到底差在哪.md` | `canonical` |
 | 2026-05-13 | published | Building an Evaluation Harness for Production AI Agents: A 12-Metric Framework From 100+ Deployments | [2026-05-13-building-an-evaluation-harness-for-production-ai-agents-a-12-metric-framework-from-100-deployments.md](2026-05-13-building-an-evaluation-harness-for-production-ai-agents-a-12-metric-framework-from-100-deployments.md) | `wiki/sources/2026-05-13-building-an-evaluation-harness-for-production-ai-agents-a-12-metric-framework-from-100-deployments.md` | `raw/sources/Building an Evaluation Harness for Production AI Agents A 12-Metric Framework From 100+ Deployments.md` | `canonical` |
 | 2026-05-03 | published | How LLM Inference Works | [2026-05-03-how-llm-inference-works.md](2026-05-03-how-llm-inference-works.md) | `wiki/sources/2026-05-03-how-llm-inference-works.md` | `raw/sources/How LLM Inference Works.md` | `canonical` |
 | 2026-04-23 | published | 从第一性原理思考 Agentic Engineering | [2026-04-23-从第一性原理思考-agentic-engineering.md](2026-04-23-从第一性原理思考-agentic-engineering.md) | `wiki/sources/2026-04-23-从第一性原理思考-agentic-engineering.md` | `raw/sources/从第一性原理思考 Agentic Engineering.md` | `canonical` |

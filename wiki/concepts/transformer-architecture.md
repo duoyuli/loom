@@ -6,7 +6,8 @@ sources:
   - ../sources/2017-06-12-attention-is-all-you-need.md
   - ../sources/2015-10-17-a-critical-review-of-recurrent-neural-networks-for-sequence-learning.md
   - ../sources/2026-05-03-how-llm-inference-works.md
-updated: 2026-05-21
+  - ../sources/2026-05-19-一文看懂-kv-cache-和-prompt-cache-到底差在哪.md
+updated: 2026-05-22
 ---
 
 Transformer 架构指的是：用 self-attention 而不是 recurrence 或 convolution 作为序列建模主路径的一类骨架。它最持久的贡献，不是某个局部技巧，而是把“并行性、依赖路径长度与表示交互方式”一起重写了。
@@ -26,6 +27,7 @@ Transformer 架构指的是：用 self-attention 而不是 recurrence 或 convol
 - 后来的 decoder-only、RoPE、KV cache、grouped-query attention、sparse/local attention 等做法，是沿着 Transformer 主干继续演化出来的版本，而不是原论文本身的内容。
 - 原始论文已经承认全局 self-attention 的 `O(n^2)` 成本，因此 Transformer 不是“没有代价地更强”，而是用更多全局交互换取更短路径和更高并行度。
 - 新摄入的 [How LLM Inference Works](../sources/2026-05-03-how-llm-inference-works.md) 把这条演化从训练架构推进到推理系统：现代 decoder-only 模型在 serving 时还会受到 `prefill / decode` 分阶段瓶颈、KV cache 显存增长和量化策略约束。
+- 新摄入的 [一文看懂 KV Cache 和 Prompt Cache 到底差在哪](../sources/2026-05-19-一文看懂-kv-cache-和-prompt-cache-到底差在哪.md) 则提醒：KV Cache 属于 Transformer 推理运行时的 K/V 状态复用，而 Prompt Cache 更接近跨请求的 prefill 结果复用和计费机制，两者不应混为同一个架构特性。
 
 ## 横向位置
 
@@ -37,6 +39,7 @@ Transformer 架构指的是：用 self-attention 而不是 recurrence 或 convol
 ## 与其他概念的关系
 
 - [系统约束与训练配方](system-and-training-constraints.md)：Transformer 说明架构选择会直接改写训练吞吐、路径长度和扩展边界。
+- [LLM 推理系统](llm-inference-systems.md)：承接 Transformer 在服务阶段遇到的 `prefill / decode / KV cache / Prompt Cache` 等运行时约束。
 - [大模型训练流水线](llm-training-pipeline.md)：它是底座形成阶段最关键的一类架构决策。
 - [数据配方](data-recipe.md)：数据决定学什么，Transformer 决定这些信息如何在序列内部传播和整合。
 - [循环神经网络（RNN）](recurrent-neural-networks.md)：RNN 是它最重要的历史对照项，帮助解释“为什么缩短路径与提升并行度会成为骨架级优势”。
@@ -58,3 +61,4 @@ Transformer 架构指的是：用 self-attention 而不是 recurrence 或 convol
 - [Attention Is All You Need](../sources/2017-06-12-attention-is-all-you-need.md)
 - [A Critical Review of Recurrent Neural Networks for Sequence Learning](../sources/2015-10-17-a-critical-review-of-recurrent-neural-networks-for-sequence-learning.md)
 - [How LLM Inference Works](../sources/2026-05-03-how-llm-inference-works.md)
+- [一文看懂 KV Cache 和 Prompt Cache 到底差在哪](../sources/2026-05-19-一文看懂-kv-cache-和-prompt-cache-到底差在哪.md)

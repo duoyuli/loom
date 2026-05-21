@@ -1,5 +1,14 @@
 # 更新日志
 
+## [2026-05-22 00:00] 摄入 | 一文看懂 KV Cache 和 Prompt Cache 到底差在哪
+
+- 新增：`wiki/sources/2026-05-19-一文看懂-kv-cache-和-prompt-cache-到底差在哪.md`
+- 新增：`wiki/concepts/llm-inference-systems.md`
+- 更新：`wiki/sources/index.md`，来源注册表增至 28 条
+- 更新：`wiki/concepts/context-engineering.md`、`wiki/concepts/system-and-training-constraints.md`、`wiki/concepts/llm-training-pipeline.md`、`wiki/concepts/transformer-architecture.md`，补入 KV Cache / Prompt Cache 的作用阶段、跨请求前缀复用、稳定前缀、缓存命中率与 API 成本边界
+- 更新：`wiki/concepts/index.md`、`wiki/index.md`、`wiki/overview.md`
+- 备注：本次把此前开放问题里的 `LLM 推理系统` 升格为概念页；DeepSeek Context Caching on Disk、OpenAI / Anthropic prompt caching、vLLM / PagedAttention / TensorRT-LLM 等仍需要后续补官方或一手材料。
+
 ## [2026-05-21 00:00] 摄入 | 当我们谈论 FDE 时，我们在谈论什么？
 
 - 新增：`wiki/sources/2026-05-21-当我们谈论-fde-时-我们在谈论什么.md`

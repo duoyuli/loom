@@ -5,8 +5,8 @@
 标签:
   - 入口
   - 地图
-最近更新: 2026-05-21
-来源数: 27
+最近更新: 2026-05-22
+来源数: 28
 ---
 
 # 总览
@@ -27,6 +27,7 @@
 
 - 当前第一批内容聚焦于 AI Agent 工作流的长期结构，而不是短期工具测评。
 - 新摄入的 FDE 材料，把 AI Agent 产品化继续推进到组织层：真正的 [Forward Deployed Engineer](concepts/forward-deployed-engineer.md) 不是咨询或实施换名，而是把客户现场的真实工作流发现回流为平台能力的产品发现循环。
+- 新摄入的 KV Cache / Prompt Cache 材料，把此前分散在训练栈和 Context Engineering 里的缓存线索升格为 [LLM 推理系统](concepts/llm-inference-systems.md)：`prefill / decode`、KV Cache、Prompt Cache、稳定前缀和缓存命中率共同决定延迟、显存、API 成本和 prompt 装配方式。
 - 新摄入的生产 Agent 评测材料，把此前散落在 Harness 与 Agent 工程里的 `eval / grader / trace / production metrics` 线索收束为 [Agent 评测](concepts/agent-evaluation.md)：离线 benchmark、在线采样、LLM-as-judge、人工校准、工具行为、多步一致性、成本和延迟都应进入同一套 evaluation harness。
 - 新摄入的 Agentic Engineering 第一性原理文章，则把此前分散的 `Prompt / Context / Spec / Harness / Skills / Memory / Session` 主题重新收束到一个上位工程方法论：在意图转化链、LLM 概率性和人类认知稀缺三条约束下，用上下文供给、分步验证、知识治理和错误回写让 Agent 进入生产级软件工程。
 - 新补摄入的系统工程材料，则把 Agentic Engineering 从协作流程继续推进到生产系统分层：可工作的 agentic software 需要同时处理 Agent、数据、安全、接口和基础设施五层，不能把权限、记忆、身份映射和部署弹性都混进 prompt 或单一 harness。
@@ -69,6 +70,7 @@
 - [大模型训练流水线](concepts/llm-training-pipeline.md)
 - [数据配方](concepts/data-recipe.md)
 - [系统约束与训练配方](concepts/system-and-training-constraints.md)
+- [LLM 推理系统](concepts/llm-inference-systems.md)
 - [后训练与奖励设计](concepts/post-training-and-reward-design.md)
 - [Agent 训练](concepts/agent-training.md)
 
@@ -93,10 +95,10 @@
 - `Agent Session Management` 已开始有第二条来自真实项目推进的样本，但仍缺 Cursor、Codex CLI、OpenHands 等工具的横向对照。
 - `Agent 记忆系统` 已覆盖 CoALA、治理边界、生命周期字段和 Mem0 路线，但 ChatGPT Memory、LangMem、NotebookLM 或更多开源框架的一手对照材料仍明显不足。
 - `信息分层设计` 已立页，但目前仍主要由 Claude Skills 这一路材料支撑，缺少代码库导航、数据库摘要、API 设计等更多一手案例。
-- 推理系统已开始进入训练栈视野，但 `prefill / decode / KV cache / batching / quantization` 尚未单独沉淀为概念页，也缺少 vLLM、PagedAttention、TensorRT-LLM 等一手材料。
+- 推理系统已单独立页，并补入 `prefill / decode / KV Cache / Prompt Cache` 的基础边界；但仍缺 vLLM、PagedAttention、TensorRT-LLM、speculative decoding 和供应商 prompt caching 官方文档等一手材料。
 - agentic software 的系统工程视角已补入 Agentic Engineering / Harness / Context / Memory，但尚未整理成稳定 synthesis 页；Dash 是否值得成为实体页也仍需更多材料。
 - “搜索原语 / 检索基础设施” 已开始在 `Context Engineering` 下出现稳定问题意识，但尚未单独沉淀为概念页。
-- 2026-05-21 已完成一轮全库巡检与补摄入，并继续摄入生产 Agent 评测与 FDE 资料：`raw/sources`、`wiki/sources` 与来源注册表均为 27 条，2 份 `raw/assets` 均由 raw 指针笔记接回来源页；但还没有把本轮使用的结构检查固化为仓库内自动化脚本。
+- 2026-05-22 已继续摄入 KV Cache / Prompt Cache 资料：`raw/sources`、`wiki/sources` 与来源注册表均为 28 条，2 份 `raw/assets` 均由 raw 指针笔记接回来源页；但还没有把本轮使用的结构检查固化为仓库内自动化脚本。
 - 还没有已发布的专题文章，写作层目前只有目录页。
 
 ## 建议优先级
@@ -118,6 +120,7 @@
 
 - [从第一性原理思考 Agentic Engineering](sources/2026-04-23-从第一性原理思考-agentic-engineering.md)
 - [当我们谈论 FDE 时，我们在谈论什么？](sources/2026-05-21-当我们谈论-fde-时-我们在谈论什么.md)
+- [一文看懂 KV Cache 和 Prompt Cache 到底差在哪](sources/2026-05-19-一文看懂-kv-cache-和-prompt-cache-到底差在哪.md)
 - [Building an Evaluation Harness for Production AI Agents: A 12-Metric Framework From 100+ Deployments](sources/2026-05-13-building-an-evaluation-harness-for-production-ai-agents-a-12-metric-framework-from-100-deployments.md)
 - [How LLM Inference Works](sources/2026-05-03-how-llm-inference-works.md)
 - [Systems Engineering: Building Agentic Software That Works系统工程：构建能工作的代理软件](sources/2026-04-08-systems-engineering-building-agentic-software-that-works系统工程-构建能工作的代理软件.md)

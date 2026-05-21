@@ -21,7 +21,8 @@ sources:
   - ../sources/2026-04-23-从第一性原理思考-agentic-engineering.md
   - ../sources/2026-04-08-systems-engineering-building-agentic-software-that-works系统工程-构建能工作的代理软件.md
   - ../sources/2026-05-13-building-an-evaluation-harness-for-production-ai-agents-a-12-metric-framework-from-100-deployments.md
-updated: 2026-05-21
+  - ../sources/2026-05-19-一文看懂-kv-cache-和-prompt-cache-到底差在哪.md
+updated: 2026-05-22
 ---
 
 Context Engineering 关注的不是“提示词写得好不好”，而是 Agent 在每一步推理时实际看到了哪些信息，以及这些信息是否精准、足够且不过载。
@@ -35,6 +36,8 @@ Context Engineering 关注的不是“提示词写得好不好”，而是 Agent
 另一篇 Agent 架构综述则把这层工程再往外扩一圈：除了系统提示本身，`Prompt Caching`、`Skills` 描述符长度、按需加载规则、压缩保留优先级和文件系统式动态上下文接口，也都属于 Context Engineering 的稳定组成部分。
 
 新摄入的 Hermes `Skills` 拆解则把这件事推进到更细的运行时权衡：为了保护 `Prompt Caching`，完整 Skill 不直接改写 system prompt，而是先以索引常驻，再在命中时通过用户消息注入；与此同时，当前有哪些 Skill 对会话可见，还受工具集、平台和 fallback 条件控制。换言之，Context Engineering 不只是在决定“加载什么文本”，也在决定“哪些资源进入候选空间”和“哪些缓存边界不能被打破”。
+
+新摄入的 KV Cache / Prompt Cache 资料则把这个缓存边界进一步压到成本层：稳定前缀不仅影响运行时效率，也影响跨请求 prompt cache 命中率和 API 账单。因此 system prompt、工具定义、项目规则和长文档前缀应尽量保持确定性，动态时间、用户状态、文件变化和随机字段则更适合进入靠后的消息通道。
 
 Claude Code 的会话管理说明则把这个概念往操作层推进了一步：上下文治理不只发生在“会话开始前装什么”，也发生在每个 turn 结束后的边界决策里。继续、rewind、compact、clear 和 subagent，并不是零散命令，而是决定“下一轮模型该继承多少历史”的上下文编辑操作。
 
@@ -117,6 +120,13 @@ OpenClaw 的拆解又补上了另一种实现样本：上下文装载不只发�
 - Hermes 的实现样本又补上一条约束：索引层和完整内容层不一定进入同一消息层级。为了保护缓存，索引可以常驻 system prompt，而完整 Skill 更适合作为按需消息注入。
 - 相关概念可见 [信息分层设计](information-layering-design.md)。
 
+## 新增视角：缓存命中率是上下文装配指标
+
+- 新摄入的 KV Cache / Prompt Cache 资料把“上下文顺序”从可读性问题推进到成本问题：同一段 system prompt、工具定义或项目规则，如果前缀稳定，就可能跨请求复用 prefill；如果混入时间戳、随机 ID 或非确定性工具顺序，后续 token 可能全部失去缓存命中。
+- 这说明 Context Engineering 还要管理哪些内容进入 cached prefix、哪些内容放到后续 user message 或 tool result，以及工具列表是否保持稳定。
+- 资料也提醒，缓存命中通常绑定模型、组织/API key 和工具前缀；中途换模型、删减工具或由中转站注入额外 system prompt，都可能让看似相同的上下文在成本上完全不同。
+- 相关概念可见 [LLM 推理系统](llm-inference-systems.md)。
+
 ## 新增视角：工具自由度也是上下文边界
 
 - ReAct 重试分析说明，一个常被忽略的上下文决策是：到底让模型自由输出到哪一层。
@@ -148,6 +158,7 @@ OpenClaw 的拆解又补上了另一种实现样本：上下文装载不只发�
 - [信息分层设计](information-layering-design.md) 关注长期资源应如何被拆成摘要层、核心层和原始层。
 - [Jagged Intelligence](jagged-intelligence.md) 解释了为什么同一个模型会在不同上下文下表现出高度不平滑的能力边界。
 - [大模型训练流水线](llm-training-pipeline.md) 提供了更大的背景：上下文控制既是应用层问题，也是训练栈问题。
+- [LLM 推理系统](llm-inference-systems.md) 解释 `prefill / decode / KV Cache / Prompt Cache` 如何把上下文顺序、缓存命中率和 API 成本连起来。
 
 ## 开放问题
 
@@ -174,3 +185,4 @@ OpenClaw 的拆解又补上了另一种实现样本：上下文装载不只发�
 - [从第一性原理思考 Agentic Engineering](../sources/2026-04-23-从第一性原理思考-agentic-engineering.md)
 - [Systems Engineering: Building Agentic Software That Works系统工程：构建能工作的代理软件](../sources/2026-04-08-systems-engineering-building-agentic-software-that-works系统工程-构建能工作的代理软件.md)
 - [Building an Evaluation Harness for Production AI Agents: A 12-Metric Framework From 100+ Deployments](../sources/2026-05-13-building-an-evaluation-harness-for-production-ai-agents-a-12-metric-framework-from-100-deployments.md)
+- [一文看懂 KV Cache 和 Prompt Cache 到底差在哪](../sources/2026-05-19-一文看懂-kv-cache-和-prompt-cache-到底差在哪.md)

@@ -7,7 +7,8 @@ sources:
   - ../sources/2017-06-12-attention-is-all-you-need.md
   - ../sources/2015-10-17-a-critical-review-of-recurrent-neural-networks-for-sequence-learning.md
   - ../sources/2026-05-03-how-llm-inference-works.md
-updated: 2026-05-21
+  - ../sources/2026-05-19-一文看懂-kv-cache-和-prompt-cache-到底差在哪.md
+updated: 2026-05-22
 ---
 
 系统约束与训练配方描述的是：大模型训练不是单机上的抽象优化题，而是被 GPU 数量、显存、并行方式、上下文长度、架构选择、容错与成本强约束的一类分布式系统工程。很多产品侧看到的能力边界，在训练开始前就已被这些约束写死。
@@ -42,12 +43,14 @@ updated: 2026-05-21
 - 推理侧关心延迟、KV cache、量化和服务稳定性。
 - 这条边界有助于避免把“推理部署问题”误解成“训练本身的问题”，反之亦然。
 - [How LLM Inference Works](../sources/2026-05-03-how-llm-inference-works.md) 补清了推理侧内部也不是单一瓶颈：`prefill` 更偏 compute-bound，`decode` 更偏 memory-bound，因此 TTFT、ITL、显存、batch size 和量化会分别影响不同体感。
+- [一文看懂 KV Cache 和 Prompt Cache 到底差在哪](../sources/2026-05-19-一文看懂-kv-cache-和-prompt-cache-到底差在哪.md) 进一步补清缓存也有层级差异：KV Cache 是单次请求内的 decode 优化，Prompt Cache 是跨请求前缀 prefill 复用，并会直接进入 API 成本结构。
 
 ## 与其他概念的关系
 
 - [数据配方](data-recipe.md) 决定喂什么材料，系统约束决定这些材料能以什么规模和方式被训练进去。
 - [大模型训练流水线](llm-training-pipeline.md) 用更高层视角把这类约束放进整条链路。
 - [Agent 训练](agent-training.md) 则把系统约束延伸到浏览器、终端、沙盒、检索和工具环境的稳定性问题。
+- [LLM 推理系统](llm-inference-systems.md) 承接训练完成后的 serving 侧约束，避免把缓存、批处理和计费策略都塞回训练配方里。
 
 ## 对知识库的启发
 
@@ -59,6 +62,7 @@ updated: 2026-05-21
 - 当前页面主要压缩的是来源中的系统视角和案例线索，不单独替代 DeepSeek-V3、Llama 3、Gemma 3 等技术报告。
 - Transformer 原始论文与 RNN 综述一起补上了“架构选择会如何改变训练约束”的历史对照，但它们本身不回答 MoE、长上下文工程或现代 serving 系统的全部问题。
 - 推理系统来源补的是 serving 视角，不替代 vLLM、TensorRT-LLM、PagedAttention 或具体模型报告；涉及特定优化效果时仍应回到一手资料。
+- Prompt Cache 资料补的是解释型和产品计费视角；供应商具体缓存规则仍需官方文档核验。
 - `muP`、`WSD`、`FP8` 等术语在这篇综述中主要承担“系统配方已成为竞争点”的证据角色，尚未在本库展开成独立概念。
 
 ## 开放问题
@@ -72,3 +76,4 @@ updated: 2026-05-21
 - [Attention Is All You Need](../sources/2017-06-12-attention-is-all-you-need.md)
 - [A Critical Review of Recurrent Neural Networks for Sequence Learning](../sources/2015-10-17-a-critical-review-of-recurrent-neural-networks-for-sequence-learning.md)
 - [How LLM Inference Works](../sources/2026-05-03-how-llm-inference-works.md)
+- [一文看懂 KV Cache 和 Prompt Cache 到底差在哪](../sources/2026-05-19-一文看懂-kv-cache-和-prompt-cache-到底差在哪.md)

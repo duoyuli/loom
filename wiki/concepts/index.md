@@ -33,6 +33,7 @@
 - [大模型训练流水线](llm-training-pipeline.md)：把模型能力形成看成预训练到部署反馈的连续链路。
 - [数据配方](data-recipe.md)：数据来源、配比、去重与合成数据如何塑造能力分布。
 - [系统约束与训练配方](system-and-training-constraints.md)：算力、并行、架构与稳定性如何提前锁定能力边界。
+- [LLM 推理系统](llm-inference-systems.md)：把训练完成后的模型服务拆成 `prefill / decode / KV cache / Prompt Cache / serving` 等运行时约束。
 - [后训练与奖励设计](post-training-and-reward-design.md)：解释模型为什么会被推向某种回答风格、偏好和任务行为。
 - [Agent 训练](agent-training.md)：描述训练目标如何扩展到工具环境、长轨迹任务和 harness program。
 

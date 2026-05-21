@@ -19,7 +19,8 @@ sources:
   - ../sources/2026-04-16-从塞尔达传说到ai-agent-claude-skills背后的信息分层设计哲学.md
   - ../sources/2026-04-06-the-anatomy-of-an-agent-harness.md
   - ../sources/2026-04-23-从第一性原理思考-agentic-engineering.md
-updated: 2026-04-24
+  - ../sources/2026-04-08-systems-engineering-building-agentic-software-that-works系统工程-构建能工作的代理软件.md
+updated: 2026-05-21
 ---
 
 Context Engineering 关注的不是“提示词写得好不好”，而是 Agent 在每一步推理时实际看到了哪些信息，以及这些信息是否精准、足够且不过载。
@@ -73,6 +74,12 @@ OpenClaw 的拆解又补上了另一种实现样本：上下文装载不只发�
 - 新摄入的 Cloudflare AI Search 说明，把“给模型送对信息”进一步压到检索基础设施层：实例创建、作用域隔离、索引更新、混合搜索和跨实例查询，本身就是上下文工程的一部分。
 - 这份资料尤其值得保留的是“作用域可编程”这一点：共享知识、单用户历史、单任务上下文，不一定该提前合并成一个总索引，而可以在运行时按需组合。
 - 它也提供了一条边界样本：搜索原语可以解决“从哪里取信息、如何把多源结果排好序”，但还不能自动解决记忆的写入、冲突处理、衰减和遗忘。
+
+## 新增视角：上下文也是数据工程
+
+- 新摄入的系统工程来源把上下文从 prompt 装配继续推到数据层：表元数据、人类注释、查询模式、机构知识、错误学习和运行时 schema 检查，都可以成为 Agent 的上下文来源。
+- 这说明 Context Engineering 不只是“把文本塞进窗口”，也包括这些上下文是否有 schema、是否能被结构化查询、是否有更新管道、是否能被权限隔离。
+- 对数据 Agent 这类系统来说，模型看到的上下文质量，很大程度取决于数据工程是否把业务语义、历史查询和错误修复做成可检索、可治理的资产。
 
 ## 新增视角：压缩、修剪与模式切换也是上下文工程
 
@@ -157,3 +164,4 @@ OpenClaw 的拆解又补上了另一种实现样本：上下文装载不只发�
 - [从《塞尔达传说》到AI Agent：Claude Skills背后的信息分层设计哲学](../sources/2026-04-16-从塞尔达传说到ai-agent-claude-skills背后的信息分层设计哲学.md)
 - [The Anatomy of an Agent Harness](../sources/2026-04-06-the-anatomy-of-an-agent-harness.md)
 - [从第一性原理思考 Agentic Engineering](../sources/2026-04-23-从第一性原理思考-agentic-engineering.md)
+- [Systems Engineering: Building Agentic Software That Works系统工程：构建能工作的代理软件](../sources/2026-04-08-systems-engineering-building-agentic-software-that-works系统工程-构建能工作的代理软件.md)

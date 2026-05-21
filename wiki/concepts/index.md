@@ -4,7 +4,7 @@
 
 ## 方法
 
-- [Agentic Engineering](agentic-engineering.md)：把 AI Agent 嵌入软件工程全链条，并用上下文、规格、验证和知识回写维持生产级约束。
+- [Agentic Engineering](agentic-engineering.md)：把 AI Agent 嵌入软件工程全链条，并用上下文、规格、验证、知识回写和生产系统分层维持生产级约束。
 - [Prompt Engineering](prompt-engineering.md)：把任务表达写成模型可理解、可迭代、可评测的指令资产。
 - [Context Engineering](context-engineering.md)：管理 Agent 每步推理真正看到的上下文。
 - [信息分层设计](information-layering-design.md)：把资源拆成摘要层、核心层和按需原始层，降低 token 浪费并提高检索质量。

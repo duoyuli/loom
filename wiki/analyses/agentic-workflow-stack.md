@@ -9,7 +9,8 @@ sources:
   - ../sources/2026-03-19-你不知道的-agent-原理-架构与工程实践.md
   - ../sources/2026-04-07-面向-token-亿万富翁-的极限-harness-engineering-100-万行代码-每天-10-亿-to.md
   - ../sources/2026-04-23-从第一性原理思考-agentic-engineering.md
-updated: 2026-04-24
+  - ../sources/2026-04-08-systems-engineering-building-agentic-software-that-works系统工程-构建能工作的代理软件.md
+updated: 2026-05-21
 ---
 
 这份分析把来源文章压缩成一个更适合长期复用的框架：Agent 系统的长期价值主要来自工作空间、协作方法和知识闭环三层的联动，而不是某个单点工具或某次 prompt 技巧。
@@ -75,6 +76,19 @@ updated: 2026-04-24
 
 因此，后续摄入 Agent 工程材料时，可以先判断它是在补“意图损耗治理”“上下文供给”“验证控制”还是“知识回写”中的哪一环，而不是只按工具名分类。
 
+## 新增判断：三层框架还需要生产系统底座
+
+新摄入的 [Systems Engineering: Building Agentic Software That Works系统工程：构建能工作的代理软件](../sources/2026-04-08-systems-engineering-building-agentic-software-that-works系统工程-构建能工作的代理软件.md) 对本页形成一次校正：`工作空间 / 协作方法 / 学习闭环` 更像 Agent 使用和迭代的上层框架，但生产级 agentic software 还必须有更底层的系统工程支撑。
+
+这条底座至少包括：
+
+- Data Engineering：把上下文、记忆、业务知识和错误学习做成可查询、可更新、可治理的数据层。
+- Security Engineering：把权限、隔离、审批和审计做成系统约束，而不是 prompt 建议。
+- Interface Engineering：让 REST、Slack、MCP、CLI 等入口共享一致身份和策略语义。
+- Infrastructure Engineering：处理长请求、流式响应、后台任务和部署弹性。
+
+因此本框架后续不应只追踪“Agent 如何协作”，还要追踪“支撑 Agent 协作的服务系统是否完整”。
+
 ## 来源
 
 - [Prompt 工程实战指南：从 Prompt 硬编码到可控系统](../sources/2026-04-16-prompt-工程实战指南-从-prompt-硬编码到可控系统.md)
@@ -82,3 +96,4 @@ updated: 2026-04-24
 - [面向“Token 亿万富翁”的极限 Harness Engineering：100 万行代码、每天 10 亿 To...](../sources/2026-04-07-面向-token-亿万富翁-的极限-harness-engineering-100-万行代码-每天-10-亿-to.md)
 - [你不知道的 Agent：原理、架构与工程实践](../sources/2026-03-19-你不知道的-agent-原理-架构与工程实践.md)
 - [从第一性原理思考 Agentic Engineering](../sources/2026-04-23-从第一性原理思考-agentic-engineering.md)
+- [Systems Engineering: Building Agentic Software That Works系统工程：构建能工作的代理软件](../sources/2026-04-08-systems-engineering-building-agentic-software-that-works系统工程-构建能工作的代理软件.md)

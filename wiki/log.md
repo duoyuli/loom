@@ -1,5 +1,16 @@
 # 更新日志
 
+## [2026-05-21 00:00] 巡检与补摄入 | 来源注册表漂移修复
+
+- 巡检发现：`raw/sources` 为 25 条，`wiki/sources` 与 `wiki/sources/index.md` 仍为 23 条，缺口为 `How LLM Inference Works` 与 `Systems Engineering: Building Agentic Software That Works系统工程：构建能工作的代理软件`
+- 新增：`wiki/sources/2026-05-03-how-llm-inference-works.md`
+- 新增：`wiki/sources/2026-04-08-systems-engineering-building-agentic-software-that-works系统工程-构建能工作的代理软件.md`
+- 更新：`wiki/sources/index.md`，来源注册表增至 25 条
+- 更新：`wiki/concepts/transformer-architecture.md`、`wiki/concepts/system-and-training-constraints.md`、`wiki/concepts/llm-training-pipeline.md`，补入 `prefill / decode / KV cache / quantization / serving` 推理系统线索
+- 更新：`wiki/concepts/agentic-engineering.md`、`wiki/concepts/harness-engineering.md`、`wiki/concepts/context-engineering.md`、`wiki/concepts/agent-memory-systems.md`、`wiki/analyses/agentic-workflow-stack.md`，补入 agentic software 五层系统工程与数据/安全/接口/基础设施边界
+- 更新：`wiki/concepts/index.md`、`wiki/index.md`、`wiki/overview.md`
+- 备注：修复后 `raw/sources`、`wiki/sources` 与来源注册表均为 25 条；本轮仍保留“自动化结构检查脚本”作为后续空白
+
 ## [2026-04-24 19:43] 巡检 | 全库结构、来源映射与链接一致性
 
 - 检查：`raw/sources` 23 条、`wiki/sources` 来源页 23 条、`wiki/sources/index.md` 注册表 23 条，未发现漏登记、重复映射或非 canonical 来源路径。

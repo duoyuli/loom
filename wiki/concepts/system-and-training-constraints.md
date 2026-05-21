@@ -6,7 +6,8 @@ sources:
   - ../sources/2026-04-03-you-dont-know-llm-training-principles-paths-new-practices.md
   - ../sources/2017-06-12-attention-is-all-you-need.md
   - ../sources/2015-10-17-a-critical-review-of-recurrent-neural-networks-for-sequence-learning.md
-updated: 2026-04-15
+  - ../sources/2026-05-03-how-llm-inference-works.md
+updated: 2026-05-21
 ---
 
 系统约束与训练配方描述的是：大模型训练不是单机上的抽象优化题，而是被 GPU 数量、显存、并行方式、上下文长度、架构选择、容错与成本强约束的一类分布式系统工程。很多产品侧看到的能力边界，在训练开始前就已被这些约束写死。
@@ -40,6 +41,7 @@ updated: 2026-04-15
 - 训练侧关心梯度、吞吐、并行、checkpoint 和成本。
 - 推理侧关心延迟、KV cache、量化和服务稳定性。
 - 这条边界有助于避免把“推理部署问题”误解成“训练本身的问题”，反之亦然。
+- [How LLM Inference Works](../sources/2026-05-03-how-llm-inference-works.md) 补清了推理侧内部也不是单一瓶颈：`prefill` 更偏 compute-bound，`decode` 更偏 memory-bound，因此 TTFT、ITL、显存、batch size 和量化会分别影响不同体感。
 
 ## 与其他概念的关系
 
@@ -56,6 +58,7 @@ updated: 2026-04-15
 
 - 当前页面主要压缩的是来源中的系统视角和案例线索，不单独替代 DeepSeek-V3、Llama 3、Gemma 3 等技术报告。
 - Transformer 原始论文与 RNN 综述一起补上了“架构选择会如何改变训练约束”的历史对照，但它们本身不回答 MoE、长上下文工程或现代 serving 系统的全部问题。
+- 推理系统来源补的是 serving 视角，不替代 vLLM、TensorRT-LLM、PagedAttention 或具体模型报告；涉及特定优化效果时仍应回到一手资料。
 - `muP`、`WSD`、`FP8` 等术语在这篇综述中主要承担“系统配方已成为竞争点”的证据角色，尚未在本库展开成独立概念。
 
 ## 开放问题
@@ -68,3 +71,4 @@ updated: 2026-04-15
 - [你不知道的大模型训练：原理、路径与新实践](../sources/2026-04-03-you-dont-know-llm-training-principles-paths-new-practices.md)
 - [Attention Is All You Need](../sources/2017-06-12-attention-is-all-you-need.md)
 - [A Critical Review of Recurrent Neural Networks for Sequence Learning](../sources/2015-10-17-a-critical-review-of-recurrent-neural-networks-for-sequence-learning.md)
+- [How LLM Inference Works](../sources/2026-05-03-how-llm-inference-works.md)

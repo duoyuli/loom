@@ -4,7 +4,8 @@ type: concept
 status: active
 sources:
   - ../sources/2026-04-23-从第一性原理思考-agentic-engineering.md
-updated: 2026-04-24
+  - ../sources/2026-04-08-systems-engineering-building-agentic-software-that-works系统工程-构建能工作的代理软件.md
+updated: 2026-05-21
 ---
 
 Agentic Engineering 指的是把 AI Agent 作为软件工程协作者嵌入 SDLC，但仍由工程师保留目标定义、约束设定、判断和验收权的一套工程方法。它区别于 `vibe coding` 的关键，不是是否使用 AI 写代码，而是是否把上下文、规格、验证、知识治理和反馈闭环做成可持续的工程系统。
@@ -42,6 +43,16 @@ Agentic Engineering 指的是把 AI Agent 作为软件工程协作者嵌入 SDLC
 - Knowledge as Code：把团队共有知识治理成版本化、可 Review、可迭代的 Skills、Rules、Standards 和 Docs。
 - Error-Driven Context Refinement：把被纠正的错误回写为持久规则或 Skill，避免下一次会话重复犯错。
 
+### 生产系统五层
+
+新摄入的 [Systems Engineering: Building Agentic Software That Works系统工程：构建能工作的代理软件](../sources/2026-04-08-systems-engineering-building-agentic-software-that-works系统工程-构建能工作的代理软件.md) 给 Agentic Engineering 补上一条更偏生产架构的横切面：可工作的 Agent 软件不只需要 Agent 逻辑，还需要同时打通 `Agent / Data / Security / Interface / Infrastructure` 五层。
+
+- Agent 层定义模型、工具、handoff、上下文和可观测性。
+- Data 层把记忆、知识和上下文当作 schema、查询、数据库、对象存储和更新管道管理。
+- Security 层把只读、写入、敏感操作和跨用户隔离收回到权限、审批、审计与数据库约束，而不是交给 prompt 口头约束。
+- Interface 层处理 REST、Slack、MCP、终端等入口的身份映射和策略一致性。
+- Infrastructure 层处理长请求、流式响应、后台任务、超时和部署弹性。
+
 ## 横向位置
 
 Agentic Engineering 在本知识库中更像“总方法论”，下方连接多个已存在概念：
@@ -67,6 +78,8 @@ Agentic Engineering 在本知识库中更像“总方法论”，下方连接多
 
 Agentic Engineering 的稳定价值，在于把 AI 编程讨论从“模型能不能写出代码”转成“人机系统如何在复杂约束下可靠交付”。它强调工程师不是退出，而是从具体执行者迁移为目标定义者、上下文策划者、流程编排者和最终判断者。
 
+系统工程来源进一步补充：可靠交付不是把所有控制面都堆进 Harness，而是把数据、安全、接口和基础设施各自做成可审计、可测试、可隔离的工程层。Agentic Engineering 的对象因此不是“会调用模型的应用”，而是一套跨层协同的软件系统。
+
 但也要保留边界：新来源中的六条实践是作者的系统化推导，当前更适合作为方法地图。若要证明某个实践在特定团队、技术栈或规模下的普遍收益，仍需要更多项目级一手证据。
 
 ## 开放问题
@@ -78,3 +91,4 @@ Agentic Engineering 的稳定价值，在于把 AI 编程讨论从“模型能�
 ## 来源
 
 - [从第一性原理思考 Agentic Engineering](../sources/2026-04-23-从第一性原理思考-agentic-engineering.md)
+- [Systems Engineering: Building Agentic Software That Works系统工程：构建能工作的代理软件](../sources/2026-04-08-systems-engineering-building-agentic-software-that-works系统工程-构建能工作的代理软件.md)

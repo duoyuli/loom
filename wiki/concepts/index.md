@@ -12,6 +12,7 @@
 - [Agent 记忆系统](agent-memory-systems.md)：管理跨步骤、跨 session 的持久状态写入、存放、检索与演化。
 - [Spec-driven Development](spec-driven-development.md)：先写契约，再让 Agent 动手实现。
 - [Harness Engineering](harness-engineering.md)：为 Agent 建立约束、反馈与清理体系。
+- [Agent 评测](agent-evaluation.md)：为检索、生成、工具行为、长链路一致性和生产健康建立可回归的质量判断体系。
 
 ## 知识工作流
 

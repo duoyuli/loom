@@ -20,6 +20,7 @@ sources:
   - ../sources/2026-04-06-the-anatomy-of-an-agent-harness.md
   - ../sources/2026-04-23-从第一性原理思考-agentic-engineering.md
   - ../sources/2026-04-08-systems-engineering-building-agentic-software-that-works系统工程-构建能工作的代理软件.md
+  - ../sources/2026-05-13-building-an-evaluation-harness-for-production-ai-agents-a-12-metric-framework-from-100-deployments.md
 updated: 2026-05-21
 ---
 
@@ -81,6 +82,12 @@ OpenClaw 的拆解又补上了另一种实现样本：上下文装载不只发�
 - 这说明 Context Engineering 不只是“把文本塞进窗口”，也包括这些上下文是否有 schema、是否能被结构化查询、是否有更新管道、是否能被权限隔离。
 - 对数据 Agent 这类系统来说，模型看到的上下文质量，很大程度取决于数据工程是否把业务语义、历史查询和错误修复做成可检索、可治理的资产。
 
+## 新增视角：上下文质量需要单独评测
+
+- 新摄入的生产 Agent 评测资料把 RAG 与上下文问题拆成四个可观测指标：`context relevance`、`context recall`、`context precision` 和 `retrieval latency`。
+- 这组拆法的价值在于，Context Engineering 不能只凭“我们用了检索”来证明上下文质量。召回不足会让模型基于残缺信息自信生成；排序错误会让关键 chunk 因 token 预算被截掉；检索延迟则会把上下文质量问题变成端到端体验问题。
+- 因此上下文治理也需要离线 benchmark、线上采样和趋势监控，而不是只在 prompt 层手工判断回答是否看起来合理。
+
 ## 新增视角：压缩、修剪与模式切换也是上下文工程
 
 - OpenClaw 的资料把“如何让旧信息退场”写得更具体了：`full / minimal / none` 三种 `PromptMode` 决定不同场景下该常驻哪些模块，而 `/compact`、自动压缩和工具结果修剪则决定历史和输出如何退出当前工作记忆。
@@ -135,6 +142,7 @@ OpenClaw 的拆解又补上了另一种实现样本：上下文装载不只发�
 - [Prompt Engineering](prompt-engineering.md) 更偏单轮指令表达和模板资产化。
 - [Spec-driven Development](spec-driven-development.md) 试图解决需求契约不清的问题。
 - [Harness Engineering](harness-engineering.md) 则进一步把规则和反馈机制工程化。
+- [Agent 评测](agent-evaluation.md) 为上下文供给提供检索质量、忠实度和线上漂移信号。
 - [Agent Session Management](agent-session-management.md) 关注长任务里如何在 turn 边界主动编辑和切分上下文。
 - [Agent 记忆系统](agent-memory-systems.md) 关注跨步骤、跨 session 的状态该如何写入、存放、检索与保留演化。
 - [信息分层设计](information-layering-design.md) 关注长期资源应如何被拆成摘要层、核心层和原始层。
@@ -165,3 +173,4 @@ OpenClaw 的拆解又补上了另一种实现样本：上下文装载不只发�
 - [The Anatomy of an Agent Harness](../sources/2026-04-06-the-anatomy-of-an-agent-harness.md)
 - [从第一性原理思考 Agentic Engineering](../sources/2026-04-23-从第一性原理思考-agentic-engineering.md)
 - [Systems Engineering: Building Agentic Software That Works系统工程：构建能工作的代理软件](../sources/2026-04-08-systems-engineering-building-agentic-software-that-works系统工程-构建能工作的代理软件.md)
+- [Building an Evaluation Harness for Production AI Agents: A 12-Metric Framework From 100+ Deployments](../sources/2026-05-13-building-an-evaluation-harness-for-production-ai-agents-a-12-metric-framework-from-100-deployments.md)

@@ -1,5 +1,14 @@
 # 更新日志
 
+## [2026-05-21 00:00] 摄入 | Building an Evaluation Harness for Production AI Agents
+
+- 新增：`wiki/sources/2026-05-13-building-an-evaluation-harness-for-production-ai-agents-a-12-metric-framework-from-100-deployments.md`
+- 新增：`wiki/concepts/agent-evaluation.md`
+- 更新：`wiki/sources/index.md`，来源注册表增至 26 条
+- 更新：`wiki/concepts/harness-engineering.md`、`wiki/concepts/agentic-engineering.md`、`wiki/concepts/context-engineering.md`，补入 production evaluation harness、离线/在线评测、LLM-as-judge、工具行为、多步一致性、成本和延迟指标
+- 更新：`wiki/concepts/index.md`、`wiki/index.md`、`wiki/overview.md`
+- 备注：本次把此前多次出现但未成页的 `Agent 评测` 升格为概念页；`Trace / 可观测性` 暂不单独开页，先作为后续开放问题保留。
+
 ## [2026-05-21 00:00] 巡检与补摄入 | 来源注册表漂移修复
 
 - 巡检发现：`raw/sources` 为 25 条，`wiki/sources` 与 `wiki/sources/index.md` 仍为 23 条，缺口为 `How LLM Inference Works` 与 `Systems Engineering: Building Agentic Software That Works系统工程：构建能工作的代理软件`

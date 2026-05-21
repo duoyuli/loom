@@ -6,7 +6,7 @@
   - 入口
   - 地图
 最近更新: 2026-05-21
-来源数: 25
+来源数: 26
 ---
 
 # 总览
@@ -26,6 +26,7 @@
 ## 当前焦点
 
 - 当前第一批内容聚焦于 AI Agent 工作流的长期结构，而不是短期工具测评。
+- 新摄入的生产 Agent 评测材料，把此前散落在 Harness 与 Agent 工程里的 `eval / grader / trace / production metrics` 线索收束为 [Agent 评测](concepts/agent-evaluation.md)：离线 benchmark、在线采样、LLM-as-judge、人工校准、工具行为、多步一致性、成本和延迟都应进入同一套 evaluation harness。
 - 新摄入的 Agentic Engineering 第一性原理文章，则把此前分散的 `Prompt / Context / Spec / Harness / Skills / Memory / Session` 主题重新收束到一个上位工程方法论：在意图转化链、LLM 概率性和人类认知稀缺三条约束下，用上下文供给、分步验证、知识治理和错误回写让 Agent 进入生产级软件工程。
 - 新补摄入的系统工程材料，则把 Agentic Engineering 从协作流程继续推进到生产系统分层：可工作的 agentic software 需要同时处理 Agent、数据、安全、接口和基础设施五层，不能把权限、记忆、身份映射和部署弹性都混进 prompt 或单一 harness。
 - 新补摄入的 LLM 推理材料，则把训练栈延伸到 serving 侧：`prefill / decode`、KV cache、量化、continuous batching 和 speculative decoding 共同决定首 token、流式延迟、显存和并发成本。
@@ -52,6 +53,7 @@
 
 - [Agentic Engineering](concepts/agentic-engineering.md)
 - [Harness Engineering](concepts/harness-engineering.md)
+- [Agent 评测](concepts/agent-evaluation.md)
 - [Prompt Engineering](concepts/prompt-engineering.md)
 - [Context Engineering](concepts/context-engineering.md)
 - [信息分层设计](concepts/information-layering-design.md)
@@ -80,7 +82,7 @@
 
 ## 当前空白
 
-- `Knowledge as Code`、`Error-Driven Context Refinement` 与 agentic software 五层系统工程已作为 Agentic Engineering 的关键实践出现，但当前仍缺更多项目级一手案例支撑，是否独立成页需要继续观察。
+- `Knowledge as Code`、`Error-Driven Context Refinement`、agentic software 五层系统工程与生产 evaluation harness 已作为 Agentic Engineering 的关键实践出现，但当前仍缺更多项目级一手案例支撑，是否独立成页需要继续观察。
 - 实体层刚出现第一组对象页，但工具、组织、作者和产品的对象谱系仍明显稀薄。
 - `Hermes Agent / OpenClaw` 这组对象已经有了正式 comparison 页，但比较仍主要建立在二次解读上，缺少官方仓库与文档级一手证据。
 - 外部引用材料开始单独摄入，Transformer 与 RNN 时代各已有一篇关键架构材料，但训练与对齐相关一手资料仍明显不足。
@@ -92,7 +94,7 @@
 - 推理系统已开始进入训练栈视野，但 `prefill / decode / KV cache / batching / quantization` 尚未单独沉淀为概念页，也缺少 vLLM、PagedAttention、TensorRT-LLM 等一手材料。
 - agentic software 的系统工程视角已补入 Agentic Engineering / Harness / Context / Memory，但尚未整理成稳定 synthesis 页；Dash 是否值得成为实体页也仍需更多材料。
 - “搜索原语 / 检索基础设施” 已开始在 `Context Engineering` 下出现稳定问题意识，但尚未单独沉淀为概念页。
-- 2026-05-21 已完成一轮全库巡检与补摄入：`raw/sources`、`wiki/sources` 与来源注册表均为 25 条，2 份 `raw/assets` 均由 raw 指针笔记接回来源页；但还没有把本轮使用的结构检查固化为仓库内自动化脚本。
+- 2026-05-21 已完成一轮全库巡检与补摄入，并继续摄入生产 Agent 评测资料：`raw/sources`、`wiki/sources` 与来源注册表均为 26 条，2 份 `raw/assets` 均由 raw 指针笔记接回来源页；但还没有把本轮使用的结构检查固化为仓库内自动化脚本。
 - 还没有已发布的专题文章，写作层目前只有目录页。
 
 ## 建议优先级
@@ -113,6 +115,7 @@
 ## 来源
 
 - [从第一性原理思考 Agentic Engineering](sources/2026-04-23-从第一性原理思考-agentic-engineering.md)
+- [Building an Evaluation Harness for Production AI Agents: A 12-Metric Framework From 100+ Deployments](sources/2026-05-13-building-an-evaluation-harness-for-production-ai-agents-a-12-metric-framework-from-100-deployments.md)
 - [How LLM Inference Works](sources/2026-05-03-how-llm-inference-works.md)
 - [Systems Engineering: Building Agentic Software That Works系统工程：构建能工作的代理软件](sources/2026-04-08-systems-engineering-building-agentic-software-that-works系统工程-构建能工作的代理软件.md)
 - [A Critical Review of Recurrent Neural Networks for Sequence Learning](sources/2015-10-17-a-critical-review-of-recurrent-neural-networks-for-sequence-learning.md)

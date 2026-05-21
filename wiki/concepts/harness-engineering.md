@@ -17,6 +17,7 @@ sources:
   - ../sources/2026-04-06-the-anatomy-of-an-agent-harness.md
   - ../sources/2026-04-23-从第一性原理思考-agentic-engineering.md
   - ../sources/2026-04-08-systems-engineering-building-agentic-software-that-works系统工程-构建能工作的代理软件.md
+  - ../sources/2026-05-13-building-an-evaluation-harness-for-production-ai-agents-a-12-metric-framework-from-100-deployments.md
 updated: 2026-05-21
 ---
 
@@ -154,10 +155,17 @@ OpenClaw 的资料把这件事进一步写实：Harness 不只是“有规则”
 - 例如只读权限应落在数据库连接、工具配置和 RBAC 上，而不是写成 prompt 指令；用户隔离应落在身份、作用域和审计日志上，而不是依赖模型自觉。
 - 这让 Harness 的边界更清楚：它负责把非确定性模型接入确定性交付链，但不应把数据建模、权限系统、身份映射和部署弹性都混成同一团外壳逻辑。
 
+## 新增视角：Evaluation harness 是生产反馈传感器
+
+- 新摄入的生产 Agent 评测资料把 Harness 里的 `verification loops` 继续压实为一套可观测指标：检索、生成、工具行为和生产健康都应有自己的信号，而不是只在最终答案上打分。
+- 其中最有价值的边界是，evaluation harness 不是上线前 QA 清单，而是持续运行的生产反馈层：离线 benchmark 抓回归，在线采样抓真实分布问题，生产指标抓成本、延迟和工具失败。
+- 这也让 Harness 的“反馈”不再只是日志和人工 review，而是能把 `context relevance / answer faithfulness / tool execution success / multi-step coherence / p99 latency` 这类信号接回变更门禁、告警和后续修复。
+
 ## 与其他概念的关系
 
 - [Agentic Engineering](agentic-engineering.md) 把 Harness 视为复杂约束下可靠协作的必要组成，尤其用于控制概率性输出和错误累积。
 - [Context Engineering](context-engineering.md) 关注“Agent 看到了什么”。
+- [Agent 评测](agent-evaluation.md) 关注“系统如何知道 Agent 是否仍在正确运行”，并把验证回路转成离线、在线和生产观测指标。
 - [Prompt Engineering](prompt-engineering.md) 关注“最靠近模型的表达层如何组织”。
 - [Spec-driven Development](spec-driven-development.md) 关注“Agent 到底要做什么”。
 - [Agent Session Management](agent-session-management.md) 关注“何时该切断、恢复或重置当前会话轨迹”；`spec / handoff / checkpoint` 则是 Harness 维持这些切换不漂移的外部锚点。
@@ -194,3 +202,4 @@ OpenClaw 的资料把这件事进一步写实：Harness 不只是“有规则”
 - [The Anatomy of an Agent Harness](../sources/2026-04-06-the-anatomy-of-an-agent-harness.md)
 - [从第一性原理思考 Agentic Engineering](../sources/2026-04-23-从第一性原理思考-agentic-engineering.md)
 - [Systems Engineering: Building Agentic Software That Works系统工程：构建能工作的代理软件](../sources/2026-04-08-systems-engineering-building-agentic-software-that-works系统工程-构建能工作的代理软件.md)
+- [Building an Evaluation Harness for Production AI Agents: A 12-Metric Framework From 100+ Deployments](../sources/2026-05-13-building-an-evaluation-harness-for-production-ai-agents-a-12-metric-framework-from-100-deployments.md)

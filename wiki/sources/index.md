@@ -10,7 +10,7 @@ updated: 2026-05-21
 ## 使用约定
 
 - 新增或查找来源时，先看本页，再进入具体 source 页。
-- 当前注册表中的 26 条来源都已经迁到 canonical 路径；后续新增来源也应直接以 canonical 路径入库。
+- 当前注册表中的 27 条来源都已经迁到 canonical 路径；后续新增来源也应直接以 canonical 路径入库。
 - 如果未来再次出现遗留路径，仍用 `migration_status` 显式标记，而不是靠约定猜测。
 - `source_date_basis` 仅有两种：`published` 表示已知资料发布日期，`created` 表示发布日期未知，暂用 `raw/sources/` 文件创建时间兜底。
 
@@ -18,6 +18,7 @@ updated: 2026-05-21
 
 | source_date | basis | title | current_wiki_path | canonical_wiki_path | raw_path | migration_status |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-05-21 | published | 当我们谈论 FDE 时，我们在谈论什么？ | [2026-05-21-当我们谈论-fde-时-我们在谈论什么.md](2026-05-21-当我们谈论-fde-时-我们在谈论什么.md) | `wiki/sources/2026-05-21-当我们谈论-fde-时-我们在谈论什么.md` | `raw/sources/当我们谈论 FDE 时，我们在谈论什么？.md` | `canonical` |
 | 2026-05-13 | published | Building an Evaluation Harness for Production AI Agents: A 12-Metric Framework From 100+ Deployments | [2026-05-13-building-an-evaluation-harness-for-production-ai-agents-a-12-metric-framework-from-100-deployments.md](2026-05-13-building-an-evaluation-harness-for-production-ai-agents-a-12-metric-framework-from-100-deployments.md) | `wiki/sources/2026-05-13-building-an-evaluation-harness-for-production-ai-agents-a-12-metric-framework-from-100-deployments.md` | `raw/sources/Building an Evaluation Harness for Production AI Agents A 12-Metric Framework From 100+ Deployments.md` | `canonical` |
 | 2026-05-03 | published | How LLM Inference Works | [2026-05-03-how-llm-inference-works.md](2026-05-03-how-llm-inference-works.md) | `wiki/sources/2026-05-03-how-llm-inference-works.md` | `raw/sources/How LLM Inference Works.md` | `canonical` |
 | 2026-04-23 | published | 从第一性原理思考 Agentic Engineering | [2026-04-23-从第一性原理思考-agentic-engineering.md](2026-04-23-从第一性原理思考-agentic-engineering.md) | `wiki/sources/2026-04-23-从第一性原理思考-agentic-engineering.md` | `raw/sources/从第一性原理思考 Agentic Engineering.md` | `canonical` |

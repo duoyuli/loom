@@ -18,6 +18,7 @@ sources:
   - ../sources/2026-04-23-从第一性原理思考-agentic-engineering.md
   - ../sources/2026-04-08-systems-engineering-building-agentic-software-that-works系统工程-构建能工作的代理软件.md
   - ../sources/2026-05-13-building-an-evaluation-harness-for-production-ai-agents-a-12-metric-framework-from-100-deployments.md
+  - ../sources/2026-05-21-当我们谈论-fde-时-我们在谈论什么.md
 updated: 2026-05-21
 ---
 
@@ -161,11 +162,18 @@ OpenClaw 的资料把这件事进一步写实：Harness 不只是“有规则”
 - 其中最有价值的边界是，evaluation harness 不是上线前 QA 清单，而是持续运行的生产反馈层：离线 benchmark 抓回归，在线采样抓真实分布问题，生产指标抓成本、延迟和工具失败。
 - 这也让 Harness 的“反馈”不再只是日志和人工 review，而是能把 `context relevance / answer faithfulness / tool execution success / multi-step coherence / p99 latency` 这类信号接回变更门禁、告警和后续修复。
 
+## 新增视角：企业 Harness 可能来自现场产品发现
+
+- 新摄入的 FDE 资料提醒，企业 Agent 的真实约束往往藏在客户现场：遗留系统、SSO、数据驻留、权限链路、组织流程和实际工作成果定义。
+- 因此一部分 Harness 不能只靠总部预设完成，而需要通过 [Forward Deployed Engineer](forward-deployed-engineer.md) 这类前线角色在真实部署中发现，再回流为平台级能力。
+- 这条线也提供了一个防退化标准：如果每次部署都靠人力定制而不回流平台，所谓 Harness 很可能只是服务交付脚本；只有复用率上升、下一次部署更省力，才说明它真的变成了产品能力。
+
 ## 与其他概念的关系
 
 - [Agentic Engineering](agentic-engineering.md) 把 Harness 视为复杂约束下可靠协作的必要组成，尤其用于控制概率性输出和错误累积。
 - [Context Engineering](context-engineering.md) 关注“Agent 看到了什么”。
 - [Agent 评测](agent-evaluation.md) 关注“系统如何知道 Agent 是否仍在正确运行”，并把验证回路转成离线、在线和生产观测指标。
+- [Forward Deployed Engineer](forward-deployed-engineer.md) 关注“企业现场的约束如何被发现并回流平台”，为 Harness 提供组织层反馈来源。
 - [Prompt Engineering](prompt-engineering.md) 关注“最靠近模型的表达层如何组织”。
 - [Spec-driven Development](spec-driven-development.md) 关注“Agent 到底要做什么”。
 - [Agent Session Management](agent-session-management.md) 关注“何时该切断、恢复或重置当前会话轨迹”；`spec / handoff / checkpoint` 则是 Harness 维持这些切换不漂移的外部锚点。
@@ -203,3 +211,4 @@ OpenClaw 的资料把这件事进一步写实：Harness 不只是“有规则”
 - [从第一性原理思考 Agentic Engineering](../sources/2026-04-23-从第一性原理思考-agentic-engineering.md)
 - [Systems Engineering: Building Agentic Software That Works系统工程：构建能工作的代理软件](../sources/2026-04-08-systems-engineering-building-agentic-software-that-works系统工程-构建能工作的代理软件.md)
 - [Building an Evaluation Harness for Production AI Agents: A 12-Metric Framework From 100+ Deployments](../sources/2026-05-13-building-an-evaluation-harness-for-production-ai-agents-a-12-metric-framework-from-100-deployments.md)
+- [当我们谈论 FDE 时，我们在谈论什么？](../sources/2026-05-21-当我们谈论-fde-时-我们在谈论什么.md)

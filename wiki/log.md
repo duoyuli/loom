@@ -1,5 +1,14 @@
 # 更新日志
 
+## [2026-05-21 00:00] 摄入 | 当我们谈论 FDE 时，我们在谈论什么？
+
+- 新增：`wiki/sources/2026-05-21-当我们谈论-fde-时-我们在谈论什么.md`
+- 新增：`wiki/concepts/forward-deployed-engineer.md`
+- 更新：`wiki/sources/index.md`，来源注册表增至 27 条
+- 更新：`wiki/concepts/agentic-engineering.md`、`wiki/concepts/harness-engineering.md`、`wiki/analyses/agentic-workflow-stack.md`，补入 FDE 作为前线产品发现循环、平台能力回流、企业现场约束发现和防止退化为咨询的判断
+- 更新：`wiki/concepts/index.md`、`wiki/index.md`、`wiki/overview.md`
+- 备注：本次把 FDE 作为组织级概念立页；OpenAI Deployment Company、Anthropic 企业服务实体、Palantir FDE 官方博客和 Stripe FDA 等一手资料仍作为后续摄入线索保留。
+
 ## [2026-05-21 00:00] 摄入 | Building an Evaluation Harness for Production AI Agents
 
 - 新增：`wiki/sources/2026-05-13-building-an-evaluation-harness-for-production-ai-agents-a-12-metric-framework-from-100-deployments.md`

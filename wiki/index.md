@@ -10,7 +10,7 @@
 ## 来源
 
 - [来源索引](sources/index.md)：来源注册表与第一检索入口，统一记录 raw 路径、当前 source 页、canonical 路径、日期依据与迁移状态。
-- 当前 `sources/` 已覆盖 Agentic Engineering、Agent 工程、Memory、Harness、Context、Agent 评测、训练栈、Transformer 前史、LLM 推理系统和 agentic software 系统工程等主题；Harness 线索也继续从高自动化编排与 `agent-legible` 仓库，扩展到企业工程里的 `spec / handoff / checkpoint / evidence` 和生产 evaluation harness。查找具体来源时，优先从来源索引反查，而不是猜文件名。
+- 当前 `sources/` 已覆盖 Agentic Engineering、Agent 工程、Memory、Harness、Context、Agent 评测、FDE、训练栈、Transformer 前史、LLM 推理系统和 agentic software 系统工程等主题；Harness 线索也继续从高自动化编排与 `agent-legible` 仓库，扩展到企业工程里的 `spec / handoff / checkpoint / evidence`、生产 evaluation harness 和前线产品发现。查找具体来源时，优先从来源索引反查，而不是猜文件名。
 
 ## 实体
 
@@ -23,6 +23,7 @@
 - [概念索引](concepts/index.md)：按主题分组的概念与方法目录。
 - [Agentic Engineering](concepts/agentic-engineering.md)：把 AI Agent 嵌入软件工程全链条，并用上下文、规格、验证、知识治理和错误回写来维持生产级约束。
 - [Agent 评测](concepts/agent-evaluation.md)：把检索、生成、工具行为、长链路一致性、成本和延迟纳入同一套 evaluation harness。
+- [Forward Deployed Engineer](concepts/forward-deployed-engineer.md)：把客户现场的真实工作流发现回流为平台能力的前线工程角色。
 
 ## 分析
 
@@ -39,6 +40,7 @@
 
 - 2026-05-21 巡检发现：`raw/sources` 已增至 25 条，而 `wiki/sources` 与来源注册表仍停留在 23 条。本轮已补摄入 `How LLM Inference Works` 与 `Systems Engineering: Building Agentic Software That Works系统工程：构建能工作的代理软件`，并回写推理系统、系统工程、数据/安全/接口/基础设施边界等线索；修复后 `raw/sources`、`wiki/sources` 与来源注册表均为 25 条。
 - 2026-05-21 新摄入 `Building an Evaluation Harness for Production AI Agents: A 12-Metric Framework From 100+ Deployments` 后，新增 [Agent 评测](concepts/agent-evaluation.md) 概念页，把此前散落在 Harness、Context 与 Agent 工程综述中的评测线索收束为离线 benchmark、在线采样、LLM-as-judge、人工校准、trace-level coherence 和生产健康指标。
+- 2026-05-21 新摄入 `当我们谈论 FDE 时，我们在谈论什么？` 后，新增 [Forward Deployed Engineer](concepts/forward-deployed-engineer.md) 概念页，把 FDE 从咨询/实施/外包中区分出来，并回写平台产品、现场发现、产物回流和 AI 工作流 golden case 这条组织线。
 - 2026-04-24 巡检确认：`raw/sources`、`wiki/sources` 与来源注册表均为 23 条；`raw/assets` 2 份 PDF 均由 raw 指针笔记接回来源页；目录索引覆盖 concepts/entities/analyses 全部页面；wiki 内部 Markdown 链接无断链。本轮顺手统一了旧来源页的 `## 受影响页面` 检索入口。
 - 2026-04-24 新摄入 `从第一性原理思考 Agentic Engineering` 后，Agent 主题补出更上位的方法论入口：用意图转化链、LLM 上下文/概率性/记忆约束和人类认知稀缺解释为什么需要 `Context / Spec / Harness / Knowledge as Code / Self-Refinement` 这一整组实践。
 - 根索引只承担总导航，不重复目录内正文。

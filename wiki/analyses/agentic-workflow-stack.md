@@ -10,6 +10,7 @@ sources:
   - ../sources/2026-04-07-面向-token-亿万富翁-的极限-harness-engineering-100-万行代码-每天-10-亿-to.md
   - ../sources/2026-04-23-从第一性原理思考-agentic-engineering.md
   - ../sources/2026-04-08-systems-engineering-building-agentic-software-that-works系统工程-构建能工作的代理软件.md
+  - ../sources/2026-05-21-当我们谈论-fde-时-我们在谈论什么.md
 updated: 2026-05-21
 ---
 
@@ -89,6 +90,18 @@ updated: 2026-05-21
 
 因此本框架后续不应只追踪“Agent 如何协作”，还要追踪“支撑 Agent 协作的服务系统是否完整”。
 
+## 新增判断：工作流发现可能需要前线组织角色
+
+新摄入的 [当我们谈论 FDE 时，我们在谈论什么？](../sources/2026-05-21-当我们谈论-fde-时-我们在谈论什么.md) 给本页补了一个组织层校正：工作流层的价值不一定能由产品团队在总部预先定义，尤其是 AI agent 这种新类别，很多 golden case 只能在客户真实环境中被发现。
+
+因此，工作流分层框架还需要容纳 [Forward Deployed Engineer](../concepts/forward-deployed-engineer.md) 这类角色：
+
+- 工作空间层提供前线可用的平台杠杆。
+- 协作方法层在现场验证真实流程、权限和集成约束。
+- 学习闭环层把现场碎石路回流成平台铺好道路。
+
+这条线提醒：如果现场发现不能进入平台能力，工作流协作会退化成项目交付；如果可以回流，前线部署就可能成为产品学习系统。
+
 ## 来源
 
 - [Prompt 工程实战指南：从 Prompt 硬编码到可控系统](../sources/2026-04-16-prompt-工程实战指南-从-prompt-硬编码到可控系统.md)
@@ -97,3 +110,4 @@ updated: 2026-05-21
 - [你不知道的 Agent：原理、架构与工程实践](../sources/2026-03-19-你不知道的-agent-原理-架构与工程实践.md)
 - [从第一性原理思考 Agentic Engineering](../sources/2026-04-23-从第一性原理思考-agentic-engineering.md)
 - [Systems Engineering: Building Agentic Software That Works系统工程：构建能工作的代理软件](../sources/2026-04-08-systems-engineering-building-agentic-software-that-works系统工程-构建能工作的代理软件.md)
+- [当我们谈论 FDE 时，我们在谈论什么？](../sources/2026-05-21-当我们谈论-fde-时-我们在谈论什么.md)

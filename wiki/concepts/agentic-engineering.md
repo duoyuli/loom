@@ -6,6 +6,7 @@ sources:
   - ../sources/2026-04-23-从第一性原理思考-agentic-engineering.md
   - ../sources/2026-04-08-systems-engineering-building-agentic-software-that-works系统工程-构建能工作的代理软件.md
   - ../sources/2026-05-13-building-an-evaluation-harness-for-production-ai-agents-a-12-metric-framework-from-100-deployments.md
+  - ../sources/2026-05-21-当我们谈论-fde-时-我们在谈论什么.md
 updated: 2026-05-21
 ---
 
@@ -60,6 +61,12 @@ Agentic Engineering 指的是把 AI Agent 作为软件工程协作者嵌入 SDLC
 
 这条线的意义在于，Agentic Engineering 的可靠性骨架不只来自任务拆分，也来自可持续评测：离线 benchmark 抓代码和 prompt 回归，在线评测抓真实流量分布漂移，生产指标则防止系统把质量问题转移成成本、延迟或工具失败。
 
+### 前线产品发现循环
+
+新摄入的 [当我们谈论 FDE 时，我们在谈论什么？](../sources/2026-05-21-当我们谈论-fde-时-我们在谈论什么.md) 把 Agentic Engineering 的边界继续往组织层推进：AI 能力进入企业核心工作流时，问题常常不是模型是否会回答，而是客户现场里真正高价值的工作流、权限边界、集成约束和产品形态尚未被发现。
+
+在这个视角下，[Forward Deployed Engineer](forward-deployed-engineer.md) 是一种组织级产品发现循环：嵌入客户现场，用粗糙但有效的方案验证真实问题，再把可复用部分回流平台。它补充了 Agentic Engineering 中“人类定义目标和判断价值”的组织形态。
+
 ## 横向位置
 
 Agentic Engineering 在本知识库中更像“总方法论”，下方连接多个已存在概念：
@@ -69,6 +76,7 @@ Agentic Engineering 在本知识库中更像“总方法论”，下方连接多
 - [Spec-driven Development](spec-driven-development.md)：先把意图、边界和验收标准显式化。
 - [Harness Engineering](harness-engineering.md)：把约束、验证、守卫、状态和反馈做成模型外部控制面。
 - [Agent 评测](agent-evaluation.md)：把多层次验证转成离线、在线和生产运行指标。
+- [Forward Deployed Engineer](forward-deployed-engineer.md)：把企业现场的工作流发现和平台能力回流接起来。
 - [Agent Session Management](agent-session-management.md)：管理长任务里的会话边界、历史保留和恢复点。
 - [Agent 学习闭环](agent-learning-loop.md)：把协作中出现的新经验沉淀回长期知识资产。
 
@@ -78,6 +86,7 @@ Agentic Engineering 在本知识库中更像“总方法论”，下方连接多
 
 - 与 [Harness Engineering](harness-engineering.md)：Harness 更偏模型外部运行控制面；Agentic Engineering 更偏整个 SDLC 中的人机协作范式。
 - 与 [Agent 评测](agent-evaluation.md)：Agentic Engineering 定义需要验证的工程层级，Agent 评测负责把这些层级变成可运行的指标和回归门禁。
+- 与 [Forward Deployed Engineer](forward-deployed-engineer.md)：FDE 更偏组织与产品发现角色，说明 Agentic Engineering 进入企业真实流程时可能需要前线嵌入和平台回流机制。
 - 与 [Context Engineering](context-engineering.md)：Context 是 Agentic Engineering 的基础设施之一，因为 AI 只能利用它能看到的知识。
 - 与 [Spec-driven Development](spec-driven-development.md)：Spec 是降低早期信息损耗、把盲区转为开放区的关键机制。
 - 与 [Agent 学习闭环](agent-learning-loop.md)：学习闭环解决方法论如何随项目错误和团队经验继续演进。
@@ -91,6 +100,8 @@ Agentic Engineering 的稳定价值，在于把 AI 编程讨论从“模型能�
 
 生产评测来源则补充了另一条边界：测试通过和 demo 成功都不足以说明 Agent 可上线；只有当检索、生成、工具行为和生产健康都被持续观测，团队才有能力判断变化是在改进系统，还是只把失败模式推迟到真实用户流量里。
 
+FDE 来源进一步补充：AI 产品的高价值用法很多时候要在客户现场被发现，而不是由总部预先设计。Agentic Engineering 因此不只是一套开发流程，也可能需要组织把现场经验、客户约束和 golden case 回流成平台能力。
+
 但也要保留边界：新来源中的六条实践是作者的系统化推导，当前更适合作为方法地图。若要证明某个实践在特定团队、技术栈或规模下的普遍收益，仍需要更多项目级一手证据。
 
 ## 开放问题
@@ -98,9 +109,11 @@ Agentic Engineering 的稳定价值，在于把 AI 编程讨论从“模型能�
 - `Knowledge as Code` 是否会成为独立于 Agentic Engineering 的稳定概念，仍需更多来源支撑。
 - 基于 Skill 的 `agentic-engineering-framework` 是否值得单独建项目实体页，取决于后续是否有仓库、用户案例或版本演进证据。
 - Agentic Engineering 与 Harness Engineering 的边界在行业使用中可能继续漂移，需要后续来源校正。
+- FDE 是否会成为 AI Agent 公司普遍采用的组织模式，仍需更多一手案例验证。
 
 ## 来源
 
 - [从第一性原理思考 Agentic Engineering](../sources/2026-04-23-从第一性原理思考-agentic-engineering.md)
 - [Systems Engineering: Building Agentic Software That Works系统工程：构建能工作的代理软件](../sources/2026-04-08-systems-engineering-building-agentic-software-that-works系统工程-构建能工作的代理软件.md)
 - [Building an Evaluation Harness for Production AI Agents: A 12-Metric Framework From 100+ Deployments](../sources/2026-05-13-building-an-evaluation-harness-for-production-ai-agents-a-12-metric-framework-from-100-deployments.md)
+- [当我们谈论 FDE 时，我们在谈论什么？](../sources/2026-05-21-当我们谈论-fde-时-我们在谈论什么.md)

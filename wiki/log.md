@@ -1,5 +1,14 @@
 # 更新日志
 
+## [2026-05-23 22:03] 巡检 | 全库结构与来源映射
+
+- 检查：`raw/sources` 31 条、`wiki/sources` 来源页 31 条、`wiki/sources/index.md` 注册表 31 条，未发现漏登记、重复映射、非 canonical 来源路径或 raw/source 数量漂移。
+- 检查：`wiki/` 当前 64 个 Markdown 页面范围内，去除代码块与行内代码示例后的内部 Markdown 链接校验通过；`concepts / entities / analyses` 目录索引覆盖全部内容页；未发现明显孤立内容页。
+- 检查：31 个 source 页面均有 `## 受影响页面` 与可回溯 raw 引用；source frontmatter 中的 raw 引用解码后均能落到实际文件；外部原文链接按证据补充保留，不视为本地文件缺失。
+- 检查：`raw/assets` 2 份 PDF 均由 `raw/sources` 指针笔记接回来源页，未发现资产绕过 `raw/sources` 直接进入 `wiki/sources` 的旁路。
+- 结构判断：`Knowledge as Code`、`Error-Driven Context Refinement`、搜索原语、蒸馏与专用化、agentic software synthesis、ChatGPT Memory / LangMem / NotebookLM 横向对照、vLLM / PagedAttention / TensorRT-LLM / prompt caching 官方材料，仍是后续更值得补的一手资料与分析空白。
+- 后续空白：本轮仍只做一次性脚本巡检，尚未把来源覆盖、链接、frontmatter、目录索引和 raw/assets 旁路检查固化为仓库内维护脚本。
+
 ## [2026-05-23 21:40] 摄入 | Learning Beyond Gradients
 
 - 新增：`wiki/sources/2026-05-23-learning-beyond-gradients.md`

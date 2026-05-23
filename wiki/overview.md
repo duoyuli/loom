@@ -102,7 +102,7 @@
 - 推理系统已单独立页，并补入 `prefill / decode / KV Cache / Prompt Cache` 的基础边界；但仍缺 vLLM、PagedAttention、TensorRT-LLM、speculative decoding 和供应商 prompt caching 官方文档等一手材料。
 - agentic software 的系统工程视角已补入 Agentic Engineering / Harness / Context / Memory，但尚未整理成稳定 synthesis 页；Dash 是否值得成为实体页也仍需更多材料。
 - “搜索原语 / 检索基础设施” 已开始在 `Context Engineering` 下出现稳定问题意识，但尚未单独沉淀为概念页。
-- 2026-05-23 已继续摄入 Anthropic Memory / Dreaming、17 种 Agent 架构综述与 `Learning Beyond Gradients`：`raw/sources`、`wiki/sources` 与来源注册表均为 31 条，2 份 `raw/assets` 均由 raw 指针笔记接回来源页；但还没有把本轮使用的结构检查固化为仓库内自动化脚本。
+- 2026-05-23 晚间巡检确认：继续摄入 Anthropic Memory / Dreaming、17 种 Agent 架构综述与 `Learning Beyond Gradients` 后，`raw/sources`、`wiki/sources` 与来源注册表均为 31 条；64 个 wiki Markdown 页面范围内的内部链接校验通过；2 份 `raw/assets` 均由 raw 指针笔记接回来源页；但还没有把本轮使用的结构检查固化为仓库内自动化脚本。
 - 还没有已发布的专题文章，写作层目前只有目录页。
 
 ## 建议优先级

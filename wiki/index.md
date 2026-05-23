@@ -40,6 +40,7 @@
 
 ## 维护提醒
 
+- 2026-05-23 晚间巡检确认：`raw/sources`、`wiki/sources` 与来源注册表均为 31 条；64 个 wiki Markdown 页面范围内的内部链接校验通过；目录索引覆盖全部 concepts/entities/analyses 内容页；31 个 source 页均有 `## 受影响页面` 与可回溯 raw 引用；2 份 `raw/assets` 均由 raw 指针笔记接回来源页。
 - 2026-05-23 新摄入 `Learning Beyond Gradients` 后，新增 [Heuristic Learning](concepts/heuristic-learning.md) 概念页，把 coding agent 维护显式软件系统的现象沉淀为 `policy / state / feedback / trials / replay / memory / update mechanism` 闭环，并回写 Agent 学习闭环、Agent 训练、后训练与奖励设计、Harness Engineering 和 Agentic Engineering；修复后 `raw/sources`、`wiki/sources` 与来源注册表均为 31 条。
 - 2026-05-23 复盘巡检确认：`raw/sources`、`wiki/sources` 与来源注册表均为 30 条；目录索引覆盖全部 concepts/entities/analyses 内容页；wiki 内部 Markdown 链接无断链；30 个 source 页均有 `## 受影响页面`；2 份 `raw/assets` 均由 raw 指针笔记接回来源页。
 - 2026-05-23 新摄入 `从0开发大模型的17种Agent架构演进详细拆解` 后，Agent 架构主题补入 `state / router / evaluator / loop / termination / dry-run` 这组控制流复盘语言；修复后 `raw/sources`、`wiki/sources` 与来源注册表均为 30 条。

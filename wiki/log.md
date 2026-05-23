@@ -1,5 +1,40 @@
 # 更新日志
 
+## [2026-05-23 21:40] 摄入 | Learning Beyond Gradients
+
+- 新增：`wiki/sources/2026-05-23-learning-beyond-gradients.md`
+- 新增：`wiki/concepts/heuristic-learning.md`
+- 更新：`wiki/sources/index.md`，来源注册表增至 31 条
+- 更新：`wiki/concepts/agent-learning-loop.md`、`wiki/concepts/agent-training.md`、`wiki/concepts/post-training-and-reward-design.md`、`wiki/concepts/harness-engineering.md`、`wiki/concepts/agentic-engineering.md`，补入 Heuristic Learning / Heuristic System、权重之外的软件系统学习、测试/日志/回放作为学习传感器、反馈链路对程序策略的塑形和复杂度压缩要求
+- 更新：`wiki/analyses/agentic-workflow-stack.md`、`wiki/concepts/index.md`、`wiki/index.md`、`wiki/overview.md`
+- 备注：本次把 `Learning Beyond Gradients` 升格为独立概念页，因为它有明确术语、实验 artifact 和长期可复用的对象边界；但保留证据边界，Atari57 与 Deep RL 的比较不能只看环境步数，仍需计入 coding agent 模型调用、日志阅读、工具运行和重构成本。原始摘录未给出精确发布日期，暂用 raw 文件创建日 `2026-05-23` 作为 `source_date_basis: created`。
+
+## [2026-05-23 00:00] 巡检与复盘 | 全库来源覆盖与结构整理
+
+- 检查：`raw/sources` 30 条、`wiki/sources` 来源页 30 条、`wiki/sources/index.md` 注册表 30 条，未发现漏登记、重复映射或非 canonical 来源路径。
+- 检查：`wiki/` 内部 Markdown 链接 62 个页面范围校验通过；`concepts / entities / analyses` 目录索引覆盖全部内容页；未发现明显孤立内容页。
+- 检查：30 个 source 页面均有 `## 受影响页面`；source frontmatter 中的 raw 引用均能落到实际文件。
+- 检查：`raw/assets` 2 份 PDF 均由 raw 指针笔记接回来源页，未发现资产旁路引用。
+- 整理：本轮把新增资料压回既有 `Agentic Engineering / Harness Engineering / Agent 训练 / Agent 记忆系统 / Agent 学习闭环 / Agent 工作流分层框架`，未为 `Dreaming`、`17 种架构` 或 `all-agentic-architectures` 新建弱页。
+- 后续空白：仍可把本轮使用的来源覆盖、链接、frontmatter 和目录索引检查固化为仓库内维护脚本。
+
+## [2026-05-23 00:00] 摄入 | 用于自学习自主 Agents 的 Memory 与 Dreaming
+
+- 新增：`wiki/sources/2026-05-21-用于自学习自主-agents-的-memory-与-dreaming.md`
+- 更新：`wiki/sources/index.md`，来源注册表增至 29 条
+- 更新：`wiki/concepts/agent-memory-systems.md`，补入 Anthropic 文件系统式 Memory、跨 Agent 共享作用域、乐观并发控制、版本审计、redaction 和 Dreaming 式离线 memory curation
+- 更新：`wiki/concepts/agent-learning-loop.md`，补入任务外学习循环：主 Agent loop 负责执行与写入，后台 Dreaming loop 跨 session 复盘、去重、归纳和重组记忆
+- 更新：`wiki/index.md`、`wiki/overview.md`
+- 备注：本次没有为 Dreaming 单独开弱概念页，先把它作为 Memory 生命周期维护和 Agent 学习闭环的交叉机制沉淀；Dreaming 输出如何验证、如何与人工组织知识冲突调解，仍保留为后续开放问题。
+
+## [2026-05-23 00:00] 摄入 | 从0开发大模型的17种Agent架构演进详细拆解
+
+- 新增：`wiki/sources/2026-05-18-从0开发大模型的17种agent架构演进详细拆解.md`
+- 更新：`wiki/sources/index.md`，来源注册表增至 30 条
+- 更新：`wiki/concepts/agentic-engineering.md`、`wiki/concepts/harness-engineering.md`、`wiki/concepts/agent-training.md`，补入 Agent 架构作为控制流设计、`state / router / evaluator` 检查表、运行时架构对训练目标的反向约束
+- 更新：`wiki/analyses/agentic-workflow-stack.md`、`wiki/index.md`、`wiki/overview.md`
+- 备注：本次没有为 17 种架构或 `all-agentic-architectures` 单独开弱页，先把它作为 Agentic Engineering 和 Harness Engineering 的控制流复盘语言沉淀；是否抽成独立架构检查表，等待更多框架材料验证。
+
 ## [2026-05-22 00:00] 摄入 | 一文看懂 KV Cache 和 Prompt Cache 到底差在哪
 
 - 新增：`wiki/sources/2026-05-19-一文看懂-kv-cache-和-prompt-cache-到底差在哪.md`

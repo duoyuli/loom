@@ -19,7 +19,9 @@ sources:
   - ../sources/2026-04-08-systems-engineering-building-agentic-software-that-works系统工程-构建能工作的代理软件.md
   - ../sources/2026-05-13-building-an-evaluation-harness-for-production-ai-agents-a-12-metric-framework-from-100-deployments.md
   - ../sources/2026-05-21-当我们谈论-fde-时-我们在谈论什么.md
-updated: 2026-05-21
+  - ../sources/2026-05-18-从0开发大模型的17种agent架构演进详细拆解.md
+  - ../sources/2026-05-23-learning-beyond-gradients.md
+updated: 2026-05-23
 ---
 
 Harness Engineering 指的是为 Agent 搭建一套可执行的约束体系，让模型输出被规则、测试、反馈和清理流程持续塑形，而不是只靠提示词或人工兜底。
@@ -162,6 +164,19 @@ OpenClaw 的资料把这件事进一步写实：Harness 不只是“有规则”
 - 其中最有价值的边界是，evaluation harness 不是上线前 QA 清单，而是持续运行的生产反馈层：离线 benchmark 抓回归，在线采样抓真实分布问题，生产指标抓成本、延迟和工具失败。
 - 这也让 Harness 的“反馈”不再只是日志和人工 review，而是能把 `context relevance / answer faithfulness / tool execution success / multi-step coherence / p99 latency` 这类信号接回变更门禁、告警和后续修复。
 
+## 新增视角：Harness 可以成为学习对象
+
+- 新摄入的 `Learning Beyond Gradients` 把 Harness 的反馈层继续推进了一步：测试、日志、replay、golden trace、失败视频和 trial summary 不只是保护策略的外壳，也可以成为 [Heuristic Learning](heuristic-learning.md) 的学习传感器。
+- 在 Heuristic System 里，coding agent 通过这些 harness 信号直接修改 policy code、状态检测器、配置、memory 和回归测试。
+- 这让 Harness 从“限制模型不要跑偏”扩展为“让外层软件系统可持续吸收反馈并防止遗忘”的机制。
+- 但这也提高了 Harness 自身的维护要求：如果反馈太窄、日志不可复现、回放缺失或测试被钻空子，系统学到的会是局部补丁而不是稳定能力。
+
+## 新增视角：State / Router / Evaluator 是 Harness 的最小检查表
+
+- 新摄入的 17 种 Agent 架构综述把 Harness 的很多做法压成更小的结构单元：`state` 决定系统记住什么中间状态，`router` 决定下一步走哪条边，`evaluator` 决定何时停、何时改、何时拒绝或升级人类。
+- 这组语言能把 Reflection、ReAct、Planning、PEV、Blackboard、Dry-Run 和 Metacognitive 放在同一张图上：它们不是“更聪明的 prompt”，而是在控制流里新增了 critic、observation loop、plan state、verifier、共享黑板、副作用审批或自我边界判断。
+- 对 Harness Engineering 来说，最重要的提醒是：没有 evaluator 的闭环系统只是会循环的 prompt；没有 dry-run 或 approval 的副作用工具只是把风险交给模型自觉；没有终止条件的 loop 会把错误和成本一起放大。
+
 ## 新增视角：企业 Harness 可能来自现场产品发现
 
 - 新摄入的 FDE 资料提醒，企业 Agent 的真实约束往往藏在客户现场：遗留系统、SSO、数据驻留、权限链路、组织流程和实际工作成果定义。
@@ -173,6 +188,7 @@ OpenClaw 的资料把这件事进一步写实：Harness 不只是“有规则”
 - [Agentic Engineering](agentic-engineering.md) 把 Harness 视为复杂约束下可靠协作的必要组成，尤其用于控制概率性输出和错误累积。
 - [Context Engineering](context-engineering.md) 关注“Agent 看到了什么”。
 - [Agent 评测](agent-evaluation.md) 关注“系统如何知道 Agent 是否仍在正确运行”，并把验证回路转成离线、在线和生产观测指标。
+- [Heuristic Learning](heuristic-learning.md) 关注这些反馈信号如何反过来改写程序策略和实验系统。
 - [Forward Deployed Engineer](forward-deployed-engineer.md) 关注“企业现场的约束如何被发现并回流平台”，为 Harness 提供组织层反馈来源。
 - [Prompt Engineering](prompt-engineering.md) 关注“最靠近模型的表达层如何组织”。
 - [Spec-driven Development](spec-driven-development.md) 关注“Agent 到底要做什么”。
@@ -212,3 +228,5 @@ OpenClaw 的资料把这件事进一步写实：Harness 不只是“有规则”
 - [Systems Engineering: Building Agentic Software That Works系统工程：构建能工作的代理软件](../sources/2026-04-08-systems-engineering-building-agentic-software-that-works系统工程-构建能工作的代理软件.md)
 - [Building an Evaluation Harness for Production AI Agents: A 12-Metric Framework From 100+ Deployments](../sources/2026-05-13-building-an-evaluation-harness-for-production-ai-agents-a-12-metric-framework-from-100-deployments.md)
 - [当我们谈论 FDE 时，我们在谈论什么？](../sources/2026-05-21-当我们谈论-fde-时-我们在谈论什么.md)
+- [从0开发大模型的17种Agent架构演进详细拆解](../sources/2026-05-18-从0开发大模型的17种agent架构演进详细拆解.md)
+- [Learning Beyond Gradients](../sources/2026-05-23-learning-beyond-gradients.md)

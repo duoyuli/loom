@@ -5,8 +5,8 @@
 标签:
   - 入口
   - 地图
-最近更新: 2026-05-22
-来源数: 28
+最近更新: 2026-05-23
+来源数: 31
 ---
 
 # 总览
@@ -26,7 +26,10 @@
 ## 当前焦点
 
 - 当前第一批内容聚焦于 AI Agent 工作流的长期结构，而不是短期工具测评。
+- 新摄入的 `Learning Beyond Gradients` 把 Agentic Engineering 的学习对象继续推进到软件系统本身：新建 [Heuristic Learning](concepts/heuristic-learning.md)，用 `policy / state / feedback / trials / replay / memory / update mechanism` 描述 coding agent 如何通过测试、日志、视频回放和实验记录维护可解释程序策略。
 - 新摄入的 FDE 材料，把 AI Agent 产品化继续推进到组织层：真正的 [Forward Deployed Engineer](concepts/forward-deployed-engineer.md) 不是咨询或实施换名，而是把客户现场的真实工作流发现回流为平台能力的产品发现循环。
+- 新摄入的 Anthropic Memory / Dreaming 演讲，把 [Agent 记忆系统](concepts/agent-memory-systems.md) 继续推进到平台原语层：文件系统式 Memory、跨 Agent 共享作用域、乐观并发控制、版本审计和任务外 Dreaming 循环共同支撑组织级持续学习。
+- 新摄入的 17 种 Agent 架构综述，把 [Agentic Engineering](concepts/agentic-engineering.md) 与 [Harness Engineering](concepts/harness-engineering.md) 的协作方法继续压到控制流对象：`state / router / evaluator / loop / termination / dry-run` 是复盘 Agent 系统是否可靠的更细抓手。
 - 新摄入的 KV Cache / Prompt Cache 材料，把此前分散在训练栈和 Context Engineering 里的缓存线索升格为 [LLM 推理系统](concepts/llm-inference-systems.md)：`prefill / decode`、KV Cache、Prompt Cache、稳定前缀和缓存命中率共同决定延迟、显存、API 成本和 prompt 装配方式。
 - 新摄入的生产 Agent 评测材料，把此前散落在 Harness 与 Agent 工程里的 `eval / grader / trace / production metrics` 线索收束为 [Agent 评测](concepts/agent-evaluation.md)：离线 benchmark、在线采样、LLM-as-judge、人工校准、工具行为、多步一致性、成本和延迟都应进入同一套 evaluation harness。
 - 新摄入的 Agentic Engineering 第一性原理文章，则把此前分散的 `Prompt / Context / Spec / Harness / Skills / Memory / Session` 主题重新收束到一个上位工程方法论：在意图转化链、LLM 概率性和人类认知稀缺三条约束下，用上下文供给、分步验证、知识治理和错误回写让 Agent 进入生产级软件工程。
@@ -56,6 +59,7 @@
 - [Agentic Engineering](concepts/agentic-engineering.md)
 - [Harness Engineering](concepts/harness-engineering.md)
 - [Agent 评测](concepts/agent-evaluation.md)
+- [Heuristic Learning](concepts/heuristic-learning.md)
 - [Forward Deployed Engineer](concepts/forward-deployed-engineer.md)
 - [Prompt Engineering](concepts/prompt-engineering.md)
 - [Context Engineering](concepts/context-engineering.md)
@@ -86,19 +90,19 @@
 
 ## 当前空白
 
-- `Knowledge as Code`、`Error-Driven Context Refinement`、agentic software 五层系统工程、生产 evaluation harness 与 FDE 现场产品发现已作为 Agentic Engineering 的关键实践出现，但当前仍缺更多项目级一手案例支撑，是否独立成页需要继续观察。
+- `Knowledge as Code`、`Error-Driven Context Refinement`、agentic software 五层系统工程、生产 evaluation harness、Heuristic Learning 与 FDE 现场产品发现已作为 Agentic Engineering 的关键实践出现，但当前仍缺更多项目级一手案例支撑，哪些概念能稳定扩展需要继续观察。
 - 实体层刚出现第一组对象页，但工具、组织、作者和产品的对象谱系仍明显稀薄。
 - `Hermes Agent / OpenClaw` 这组对象已经有了正式 comparison 页，但比较仍主要建立在二次解读上，缺少官方仓库与文档级一手证据。
 - 外部引用材料开始单独摄入，Transformer 与 RNN 时代各已有一篇关键架构材料，但训练与对齐相关一手资料仍明显不足。
 - 训练栈已拆出“数据配方”和“系统约束”，但 `蒸馏与专用化` 仍未独立成页。
 - `Jagged Intelligence` 已作为概念立页，但其原始出处和不同模型代际的比较材料仍未单独摄入。
 - `Agent Session Management` 已开始有第二条来自真实项目推进的样本，但仍缺 Cursor、Codex CLI、OpenHands 等工具的横向对照。
-- `Agent 记忆系统` 已覆盖 CoALA、治理边界、生命周期字段和 Mem0 路线，但 ChatGPT Memory、LangMem、NotebookLM 或更多开源框架的一手对照材料仍明显不足。
+- `Agent 记忆系统` 已覆盖 CoALA、治理边界、生命周期字段、Mem0 路线和 Anthropic Memory / Dreaming 平台样本，但 ChatGPT Memory、LangMem、NotebookLM 或更多开源框架的一手对照材料仍明显不足。
 - `信息分层设计` 已立页，但目前仍主要由 Claude Skills 这一路材料支撑，缺少代码库导航、数据库摘要、API 设计等更多一手案例。
 - 推理系统已单独立页，并补入 `prefill / decode / KV Cache / Prompt Cache` 的基础边界；但仍缺 vLLM、PagedAttention、TensorRT-LLM、speculative decoding 和供应商 prompt caching 官方文档等一手材料。
 - agentic software 的系统工程视角已补入 Agentic Engineering / Harness / Context / Memory，但尚未整理成稳定 synthesis 页；Dash 是否值得成为实体页也仍需更多材料。
 - “搜索原语 / 检索基础设施” 已开始在 `Context Engineering` 下出现稳定问题意识，但尚未单独沉淀为概念页。
-- 2026-05-22 已继续摄入 KV Cache / Prompt Cache 资料：`raw/sources`、`wiki/sources` 与来源注册表均为 28 条，2 份 `raw/assets` 均由 raw 指针笔记接回来源页；但还没有把本轮使用的结构检查固化为仓库内自动化脚本。
+- 2026-05-23 已继续摄入 Anthropic Memory / Dreaming、17 种 Agent 架构综述与 `Learning Beyond Gradients`：`raw/sources`、`wiki/sources` 与来源注册表均为 31 条，2 份 `raw/assets` 均由 raw 指针笔记接回来源页；但还没有把本轮使用的结构检查固化为仓库内自动化脚本。
 - 还没有已发布的专题文章，写作层目前只有目录页。
 
 ## 建议优先级
@@ -119,6 +123,9 @@
 ## 来源
 
 - [从第一性原理思考 Agentic Engineering](sources/2026-04-23-从第一性原理思考-agentic-engineering.md)
+- [Learning Beyond Gradients](sources/2026-05-23-learning-beyond-gradients.md)
+- [用于自学习自主 Agents 的 Memory 与 Dreaming](sources/2026-05-21-用于自学习自主-agents-的-memory-与-dreaming.md)
+- [从0开发大模型的17种Agent架构演进详细拆解](sources/2026-05-18-从0开发大模型的17种agent架构演进详细拆解.md)
 - [当我们谈论 FDE 时，我们在谈论什么？](sources/2026-05-21-当我们谈论-fde-时-我们在谈论什么.md)
 - [一文看懂 KV Cache 和 Prompt Cache 到底差在哪](sources/2026-05-19-一文看懂-kv-cache-和-prompt-cache-到底差在哪.md)
 - [Building an Evaluation Harness for Production AI Agents: A 12-Metric Framework From 100+ Deployments](sources/2026-05-13-building-an-evaluation-harness-for-production-ai-agents-a-12-metric-framework-from-100-deployments.md)

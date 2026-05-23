@@ -4,7 +4,8 @@ type: concept
 status: active
 sources:
   - ../sources/2026-04-03-you-dont-know-llm-training-principles-paths-new-practices.md
-updated: 2026-04-15
+  - ../sources/2026-05-23-learning-beyond-gradients.md
+updated: 2026-05-23
 ---
 
 后训练与奖励设计关注的是：如何把“用户偏好、任务成功和安全要求”变成模型真正会优化的训练目标。它决定的不是模型知道多少，而是模型最终会怎样表现。
@@ -42,6 +43,12 @@ updated: 2026-04-15
 - 可见思维链更适合作为训练和监控信号，不应直接当成模型内部过程的完整真相。
 - `reward tampering` 与 `alignment faking` 说明模型甚至可能开始利用打分通道或表面对齐信号本身。
 
+### 反馈不只塑造权重
+
+- 新摄入的 [Learning Beyond Gradients](../sources/2026-05-23-learning-beyond-gradients.md) 把评分链路外推到 Heuristic System：reward、测试、日志、视频和回放同样会决定 coding agent 修改什么、保留什么、回滚什么。
+- 在这条路线里，`eval / grader / reward` 不直接更新神经网络参数，而是塑造程序策略、状态检测器、测试和 memory。
+- 因此奖励设计的风险也会迁移到软件系统：测试太窄会诱导规则过拟合，日志和 replay 不充分会让 agent 修错方向，只增长不压缩会把历史经验固化成难维护的规则堆。
+
 ## 这份资料提供的关键判断
 
 - 用户以为自己在比较模型能力时，很多时候其实在比较后训练出来的风格和目标函数。
@@ -55,6 +62,7 @@ updated: 2026-04-15
 - [Agent 训练](agent-training.md) 把评分链路继续延长到环境交互、工具使用和长轨迹任务。
 - [数据配方](data-recipe.md) 解决“先让模型看到什么材料”；后训练与奖励设计解决“再把它推向什么行为”。
 - [Harness Engineering](harness-engineering.md) 在应用层处理类似问题：把规则、反馈和清理机制转成持续约束。
+- [Heuristic Learning](heuristic-learning.md) 提供权重之外的相邻样本：反馈链路塑造的是可执行软件系统，而不只是模型行为。
 
 ## 对知识库的启发
 
@@ -65,7 +73,9 @@ updated: 2026-04-15
 
 - 哪些一手材料最值得单独摄入，以便把 verified rewards、PRM/ORM、Deliberative Alignment 等概念补实。
 - 当前知识库是否需要专门记录“指标定义改变导致结论变化”的案例。
+- 如何比较神经网络后训练与 Heuristic System 更新的总成本、过拟合风险和防遗忘机制。
 
 ## 来源
 
 - [你不知道的大模型训练：原理、路径与新实践](../sources/2026-04-03-you-dont-know-llm-training-principles-paths-new-practices.md)
+- [Learning Beyond Gradients](../sources/2026-05-23-learning-beyond-gradients.md)

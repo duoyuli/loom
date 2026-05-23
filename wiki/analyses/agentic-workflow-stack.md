@@ -11,7 +11,9 @@ sources:
   - ../sources/2026-04-23-从第一性原理思考-agentic-engineering.md
   - ../sources/2026-04-08-systems-engineering-building-agentic-software-that-works系统工程-构建能工作的代理软件.md
   - ../sources/2026-05-21-当我们谈论-fde-时-我们在谈论什么.md
-updated: 2026-05-21
+  - ../sources/2026-05-18-从0开发大模型的17种agent架构演进详细拆解.md
+  - ../sources/2026-05-23-learning-beyond-gradients.md
+updated: 2026-05-23
 ---
 
 这份分析把来源文章压缩成一个更适合长期复用的框架：Agent 系统的长期价值主要来自工作空间、协作方法和知识闭环三层的联动，而不是某个单点工具或某次 prompt 技巧。
@@ -30,6 +32,7 @@ updated: 2026-05-21
 - 用 [Context Engineering](../concepts/context-engineering.md) 控制它看到什么。
 - 用 [Spec-driven Development](../concepts/spec-driven-development.md) 说明它要交付什么。
 - 用 [Harness Engineering](../concepts/harness-engineering.md) 限制它不能怎样跑偏。
+- 新摄入的 Agent 架构综述把这一层继续细化为控制流设计：每种架构都应能说明新增的 state、router、evaluator、终止条件或副作用闸门。
 - 新摄入的 “Token 亿万富翁” 资料则提醒，这一层还必须显式包含 `agent-legible` 代码库、`< 1 分钟` 构建循环、可观测性和 PR 生命周期自动化；否则即使 `Prompt / Context / Spec / Harness` 齐了，系统也会在人类等待和慢内循环处失速。
 - 用任务状态、协议、评测与 Trace 把多轮运行时状态外化，避免把复杂性硬塞回主循环。
 
@@ -41,7 +44,7 @@ updated: 2026-05-21
 - 提炼成可复用模式
 - 应用回工作空间和任务执行
 
-对应概念见 [Agent 学习闭环](../concepts/agent-learning-loop.md)。
+对应概念见 [Agent 学习闭环](../concepts/agent-learning-loop.md)。新摄入的 [Heuristic Learning](../concepts/heuristic-learning.md) 把这一层进一步落到可执行软件系统：学习结果不只进入文档、Skill 或 memory，也可以进入 policy code、状态检测器、测试、日志、回放和实验记录。
 
 ## 这份框架最值得保留的判断
 
@@ -52,6 +55,7 @@ updated: 2026-05-21
 - 当自动化进一步走向多 Agent 编排时，`spec` 也会从“需求契约”升级成“交接对象”，而仓库结构、构建预算和可观测性则会升级成真实的协作前提。
 - 如果知识库要为 Agent 服务，就应更多记录“稳定结构”而不是“短期技巧”。
 - 原文后半段补充了一个协作层判断：人在面对模型的锯齿状能力分布时，仍需通过持续使用建立边界直觉，见 [Jagged Intelligence](../concepts/jagged-intelligence.md)。
+- Heuristic Learning 补充了一个新的稳定结构：当任务反馈清楚且可复现时，Agent 工作流可以把失败样本、回放和测试直接接成程序策略的更新循环，而不只是在对话里产出一次性代码。
 
 ## 证据边界
 
@@ -102,6 +106,27 @@ updated: 2026-05-21
 
 这条线提醒：如果现场发现不能进入平台能力，工作流协作会退化成项目交付；如果可以回流，前线部署就可能成为产品学习系统。
 
+## 新增判断：协作方法层要能落到控制流对象
+
+新摄入的 [从0开发大模型的17种Agent架构演进详细拆解](../sources/2026-05-18-从0开发大模型的17种agent架构演进详细拆解.md) 对本页形成一次结构复盘：`Prompt / Context / Spec / Harness` 仍然是协作方法层的高层入口，但真正实现时必须落成更小的控制流对象。
+
+可复用的拆法是：
+
+- `state`：计划、草稿、批注、工具结果、共享黑板、记忆、模拟状态。
+- `router`：固定边、条件边、重规划、入口分诊、人工审批。
+- `evaluator`：critic、verifier、程序化约束、LLM-as-judge、人类闸门。
+- `loop / termination`：反思、ReAct、PEV、自我改进和任务终止条件。
+
+这让分层框架更容易用于复盘具体系统：如果一个 Agent 工作流失控，不应只问 prompt 是否写清楚，而要检查这些控制流对象缺了哪一个、哪个对象还停留在模型口头承诺里。
+
+## 新增判断：学习闭环可以直接维护程序系统
+
+新摄入的 [Learning Beyond Gradients](../sources/2026-05-23-learning-beyond-gradients.md) 对本页形成另一条补强：工作流分层里的“学习闭环层”不只负责知识沉淀，也可以直接维护可执行 Heuristic System。
+
+在这类系统里，工作空间层提供快速实验、回放和记录；协作方法层提供测试、harness、状态读取和重构约束；学习闭环层则把 reward、失败视频、trial summary 和版本 diff 回写为下一轮 policy code。它让“Agent 越用越强”从抽象愿景变成一种可检查的工程循环。
+
+这条线也提醒分层框架要保留成本边界：如果只统计环境交互步数，而不统计 coding agent 的模型调用、日志阅读、工具运行和重构时间，就容易高估 Heuristic Learning 的样本效率。
+
 ## 来源
 
 - [Prompt 工程实战指南：从 Prompt 硬编码到可控系统](../sources/2026-04-16-prompt-工程实战指南-从-prompt-硬编码到可控系统.md)
@@ -111,3 +136,5 @@ updated: 2026-05-21
 - [从第一性原理思考 Agentic Engineering](../sources/2026-04-23-从第一性原理思考-agentic-engineering.md)
 - [Systems Engineering: Building Agentic Software That Works系统工程：构建能工作的代理软件](../sources/2026-04-08-systems-engineering-building-agentic-software-that-works系统工程-构建能工作的代理软件.md)
 - [当我们谈论 FDE 时，我们在谈论什么？](../sources/2026-05-21-当我们谈论-fde-时-我们在谈论什么.md)
+- [从0开发大模型的17种Agent架构演进详细拆解](../sources/2026-05-18-从0开发大模型的17种agent架构演进详细拆解.md)
+- [Learning Beyond Gradients](../sources/2026-05-23-learning-beyond-gradients.md)

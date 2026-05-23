@@ -7,7 +7,9 @@ sources:
   - ../sources/2026-04-08-systems-engineering-building-agentic-software-that-works系统工程-构建能工作的代理软件.md
   - ../sources/2026-05-13-building-an-evaluation-harness-for-production-ai-agents-a-12-metric-framework-from-100-deployments.md
   - ../sources/2026-05-21-当我们谈论-fde-时-我们在谈论什么.md
-updated: 2026-05-21
+  - ../sources/2026-05-18-从0开发大模型的17种agent架构演进详细拆解.md
+  - ../sources/2026-05-23-learning-beyond-gradients.md
+updated: 2026-05-23
 ---
 
 Agentic Engineering 指的是把 AI Agent 作为软件工程协作者嵌入 SDLC，但仍由工程师保留目标定义、约束设定、判断和验收权的一套工程方法。它区别于 `vibe coding` 的关键，不是是否使用 AI 写代码，而是是否把上下文、规格、验证、知识治理和反馈闭环做成可持续的工程系统。
@@ -67,6 +69,22 @@ Agentic Engineering 指的是把 AI Agent 作为软件工程协作者嵌入 SDLC
 
 在这个视角下，[Forward Deployed Engineer](forward-deployed-engineer.md) 是一种组织级产品发现循环：嵌入客户现场，用粗糙但有效的方案验证真实问题，再把可复用部分回流平台。它补充了 Agentic Engineering 中“人类定义目标和判断价值”的组织形态。
 
+### Agent 架构作为控制流设计
+
+新摄入的 [从0开发大模型的17种Agent架构演进详细拆解](../sources/2026-05-18-从0开发大模型的17种agent架构演进详细拆解.md) 把 Agentic Engineering 里“如何设计 Agent 系统”压回一个更底层的问题：不要先问哪个架构名词更先进，而要问当前任务缺哪种控制能力。
+
+这篇资料给出了一组可复用检查项：新增了什么 state、拓扑是什么、router 怎么工作、失败模式在哪里、什么时候应该升级或降级。它把 Reflection、Tool Use、ReAct、Planning、PEV、多 Agent、Memory、ToT、Dry-Run、Metacognitive 等模式都看成控制流能力的逐步显式化。
+
+对 Agentic Engineering 而言，这补上一条实践判断：工程师设计的不是“万能 Agent”，而是状态、路由、验证器、终止条件、副作用闸门和人类接管点的组合。
+
+### Heuristic System 作为长期可拥有的软件能力
+
+新摄入的 [Learning Beyond Gradients](../sources/2026-05-23-learning-beyond-gradients.md) 把 Agentic Engineering 的对象继续推进到“软件系统如何学习”。coding agent 的价值不只是更快写一次 patch，而是可能让一套程序策略、状态检测器、测试、日志、回放、memory 和实验记录长期吸收反馈。
+
+这条线的判断是：过去许多 heuristic 不是天然无效，而是维护成本高到不值得拥有；当 coding agent 能持续看失败、改代码、补测试、看回放并重构历史，heuristic 可能重新成为可解释、可验证、可压缩的软件资产。
+
+它也对 Agentic Engineering 加了一条约束：长期价值不来自不断堆规则，而来自同时维护回归保护和复杂度压缩。否则所谓学习系统会退化成无法审计的规则堆。
+
 ## 横向位置
 
 Agentic Engineering 在本知识库中更像“总方法论”，下方连接多个已存在概念：
@@ -79,6 +97,7 @@ Agentic Engineering 在本知识库中更像“总方法论”，下方连接多
 - [Forward Deployed Engineer](forward-deployed-engineer.md)：把企业现场的工作流发现和平台能力回流接起来。
 - [Agent Session Management](agent-session-management.md)：管理长任务里的会话边界、历史保留和恢复点。
 - [Agent 学习闭环](agent-learning-loop.md)：把协作中出现的新经验沉淀回长期知识资产。
+- [Heuristic Learning](heuristic-learning.md)：把可执行软件系统本身视为会被 coding agent 持续更新的学习对象。
 
 它也可以作为 [Agent 工作流分层框架](../analyses/agentic-workflow-stack.md) 的上位解释：工作空间、协作方法和学习闭环三层，都是为了让 Agentic Engineering 不停留在一次性对话里。
 
@@ -102,6 +121,10 @@ Agentic Engineering 的稳定价值，在于把 AI 编程讨论从“模型能�
 
 FDE 来源进一步补充：AI 产品的高价值用法很多时候要在客户现场被发现，而不是由总部预先设计。Agentic Engineering 因此不只是一套开发流程，也可能需要组织把现场经验、客户约束和 golden case 回流成平台能力。
 
+Agent 架构综述则提供了更具体的系统设计抓手：当一个 Agent 系统不可靠时，优先检查它是否缺少显式 state、router、evaluator、终止条件或副作用闸门，而不是只继续扩写 prompt。
+
+Heuristic Learning 来源补充了另一个方向：当任务边界清晰、反馈可复现、旧能力能被回归测试保护时，Agentic Engineering 不一定只是在调用更强模型，也可能是在维护一套越来越强的显式软件策略系统。这个判断需要谨慎外推，尤其不能忽略 coding agent 的总计算成本和复杂感知任务中的神经网络优势。
+
 但也要保留边界：新来源中的六条实践是作者的系统化推导，当前更适合作为方法地图。若要证明某个实践在特定团队、技术栈或规模下的普遍收益，仍需要更多项目级一手证据。
 
 ## 开放问题
@@ -110,6 +133,8 @@ FDE 来源进一步补充：AI 产品的高价值用法很多时候要在客户�
 - 基于 Skill 的 `agentic-engineering-framework` 是否值得单独建项目实体页，取决于后续是否有仓库、用户案例或版本演进证据。
 - Agentic Engineering 与 Harness Engineering 的边界在行业使用中可能继续漂移，需要后续来源校正。
 - FDE 是否会成为 AI Agent 公司普遍采用的组织模式，仍需更多一手案例验证。
+- `state / router / evaluator` 是否值得抽成独立 Agent 架构检查表，需要继续观察后续框架材料是否反复使用这组三元组。
+- Heuristic Learning 是否会成为稳定工程范式，取决于后续是否出现更多可复现实验、成本口径和真实项目案例。
 
 ## 来源
 
@@ -117,3 +142,5 @@ FDE 来源进一步补充：AI 产品的高价值用法很多时候要在客户�
 - [Systems Engineering: Building Agentic Software That Works系统工程：构建能工作的代理软件](../sources/2026-04-08-systems-engineering-building-agentic-software-that-works系统工程-构建能工作的代理软件.md)
 - [Building an Evaluation Harness for Production AI Agents: A 12-Metric Framework From 100+ Deployments](../sources/2026-05-13-building-an-evaluation-harness-for-production-ai-agents-a-12-metric-framework-from-100-deployments.md)
 - [当我们谈论 FDE 时，我们在谈论什么？](../sources/2026-05-21-当我们谈论-fde-时-我们在谈论什么.md)
+- [从0开发大模型的17种Agent架构演进详细拆解](../sources/2026-05-18-从0开发大模型的17种agent架构演进详细拆解.md)
+- [Learning Beyond Gradients](../sources/2026-05-23-learning-beyond-gradients.md)

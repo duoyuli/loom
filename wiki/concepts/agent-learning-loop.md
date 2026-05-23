@@ -6,7 +6,9 @@ sources:
   - ../sources/2026-04-10-拥抱-ai-这一年-我的工具-实践和思考.md
   - ../sources/2026-04-15-一文搞懂hermes-新顶流agent如何从经验中自我进化.md
   - ../sources/2026-04-23-从第一性原理思考-agentic-engineering.md
-updated: 2026-04-24
+  - ../sources/2026-05-21-用于自学习自主-agents-的-memory-与-dreaming.md
+  - ../sources/2026-05-23-learning-beyond-gradients.md
+updated: 2026-05-23
 ---
 
 “让 Agent 替我学习”描述的是一种采集、提炼、应用三段式知识闭环：人不再亲自处理所有一手信息，而是让 Agent 先筛选和压缩，再把结果回灌到未来工作流中。
@@ -45,6 +47,7 @@ updated: 2026-04-24
 - 人在闭环里并没有消失，而是退到“看提炼结果、做必要反馈与记录”的位置。
 - Hermes 的实现样本进一步说明，闭环内部还要区分“稳定事实”和“可复用方法”两类长期状态：前者更接近 Memory，后者更适合 Skill。
 - Hermes 里的 patch 成功后不会回改当前会话的 system prompt，而是通过清缓存让新版本从下一次对话起生效，说明学习闭环还会受缓存一致性和上下文边界约束。
+- Anthropic 的 Memory / Dreaming 资料又补出“任务外学习”形态：Agent 在执行中写入 memory，独立 Dreaming 过程再跨 session 分析 transcripts、识别重复错误和低效模式，并把更好的组织结构回写成未来可采用的 memory snapshot。
 
 
 ## 新增视角：Knowledge as Code 与错误驱动回写
@@ -53,6 +56,20 @@ updated: 2026-04-24
 - 其中 `Error-Driven Context Refinement` 尤其适合沉淀到本页：当 AI 被纠正后，不应只在当前对话里道歉重试，而应诊断根因，检查现有规则是否覆盖，必要时建议新增或更新 Rule/Skill，防止下次会话重复犯错。
 - 这补上了闭环的“自下而上”来源：实践 5 更像资深经验的主动编码，实践 6 则把开发过程里的失败、纠偏和遗漏转成新上下文。
 - 对本知识库而言，这与 `wiki/log.md` 和纠错流程同构：重要错误应回溯修正导致错误的页面，而不是只在最终回答里留下临时备注。
+
+## 新增视角：Dreaming 把学习从 hot path 中拆出
+
+- Dreaming 的关键不是一个浪漫化比喻，而是一种架构分工：主 Agent loop 负责完成任务并留下 memory，后台 Dreaming loop 负责跨 session 复盘、去重、归纳和重组记忆。
+- 这种分工避免执行中 Agent 在“完成当前目标”和“改善长期记忆质量”之间做目标折中，也避免把额外延迟加到 hot path 上。
+- 它把学习闭环从单次失败后的人工纠错，推进到组织级轨迹挖掘：多个 Agent 独立犯过的同类错误，可以在任务外被汇总成更高质量的未来指导。
+- 但 Dreaming 仍不等于自动真理机；它的输出需要 diff、版本历史、写入归因和采用边界，否则后台优化也可能把错误模式固化成组织记忆。
+
+## 新增视角：Heuristic Learning 把学习对象推进到软件系统
+
+- 新摄入的 `Learning Beyond Gradients` 把学习闭环从“知识如何进入未来任务”继续推进到“可执行软件系统如何持续变强”。
+- [Heuristic Learning](heuristic-learning.md) 的关键不是写一条聪明规则，而是让 policy code、状态检测器、测试、日志、视频回放、trial summary、memory 和 coding agent 更新机制接成闭环。
+- 这让学习结果不只表现为文档、Skill 或 memory，也表现为一套可运行、可复现、可回归的 Heuristic System。
+- 它也补上一条防腐化要求：闭环不能只吸收反馈，还必须周期性压缩历史，把局部补丁重构回更简单、更可维护的表示。
 
 ## 与知识库的关系
 
@@ -67,6 +84,8 @@ updated: 2026-04-24
 
 - [Agentic Engineering](agentic-engineering.md) 把学习闭环进一步写成 `Knowledge as Code` 与 `Error-Driven Context Refinement`，强调经验应回写为可执行上下文。
 - [Context Engineering](context-engineering.md) 关注每一步该看什么；学习闭环则关注哪些经验值得被长期留下。
+- [Agent 记忆系统](agent-memory-systems.md) 承接 Memory 的存储、作用域、治理和 Dreaming 式后台整理；学习闭环关注这些整理动作如何转化成下一次任务的行为改善。
+- [Heuristic Learning](heuristic-learning.md) 把闭环进一步落到可执行软件系统，强调代码、测试、回放和实验记录也可以成为持续学习的承载物。
 - [Spec-driven Development](spec-driven-development.md) 决定交付契约；学习闭环决定哪些新规则会被回写成未来任务的默认约束。
 - [Harness Engineering](harness-engineering.md) 负责把反馈与清理机制工程化；学习闭环强调这些反馈应沉淀为长期可复用知识。
 - [Jagged Intelligence](jagged-intelligence.md) 解释了为什么人仍需保留筛选、纠偏和边界判断，而不能把闭环误解为全自动代理。
@@ -88,3 +107,5 @@ updated: 2026-04-24
 - [拥抱 AI 这一年：我的工具、实践和思考](../sources/2026-04-10-拥抱-ai-这一年-我的工具-实践和思考.md)
 - [一文搞懂Hermes：新顶流Agent如何从经验中自我进化](../sources/2026-04-15-一文搞懂hermes-新顶流agent如何从经验中自我进化.md)
 - [从第一性原理思考 Agentic Engineering](../sources/2026-04-23-从第一性原理思考-agentic-engineering.md)
+- [用于自学习自主 Agents 的 Memory 与 Dreaming](../sources/2026-05-21-用于自学习自主-agents-的-memory-与-dreaming.md)
+- [Learning Beyond Gradients](../sources/2026-05-23-learning-beyond-gradients.md)

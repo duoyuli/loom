@@ -12,7 +12,8 @@ sources:
   - ../sources/2026-04-15-hermes-凭什么两个月接棒-openclaw.md
   - ../sources/2026-04-06-the-anatomy-of-an-agent-harness.md
   - ../sources/2026-04-08-systems-engineering-building-agentic-software-that-works系统工程-构建能工作的代理软件.md
-updated: 2026-05-21
+  - ../sources/2026-05-21-用于自学习自主-agents-的-memory-与-dreaming.md
+updated: 2026-05-23
 ---
 
 Agent 记忆系统指的是 Agent 在当前上下文窗口之外，用来持续保存、检索和重用状态的一整套机制。它不是单个"记忆库"或单次向量检索，而是同时包含写入规则、存储分层、检索策略、整理与遗忘机制、治理层和跨时间演化表示的外部状态层。Memory 的核心不是"把过去留下来"，而是**治理过去如何进入现在**。
@@ -47,6 +48,7 @@ CoALA（Cognitive Architectures for Language Agents）借用认知科学的分�
 - Mem0 等工程实践把问题进一步具体化：`ADD-only` 写入保留状态变化，agent-generated facts 入库，实体链接与多信号检索融合，说明记忆系统质量越来越依赖写入层与检索层一起设计。
 - OpenClaw 的实现样本则把另一条工程路线补了出来：长期核心层 `MEMORY.md` 固定进入主会话，日记层 `memory/YYYY-MM-DD.md` 通过 `flush -> chunk -> retrieval -> line read` 的链路按需召回，并让每日记忆随时间衰减。
 - Hermes / OpenClaw 的比较进一步说明，记忆系统的关键差异往往先发生在“写入触发时机、跨不跨项目、默认读什么”这几件事上，而不是某个向量库或后端名字。
+- Anthropic 的 Memory / Dreaming 资料又补出平台原语路线：把记忆建模为模型可直接读写的文件系统，同时用独立 Dreaming 循环在任务外分析 transcripts、整理共享 memory、识别跨 session 模式。
 - 当前边界：情景记忆的长跨度时间推理和多 session 结构仍是明显难点；"事实和实体都能找回来"还不等于"系统理解了事件如何演化"。
 
 ## Memory 生命周期
@@ -160,6 +162,14 @@ Reflexion、ExpeL、ReMe 等工作都在回答同一个问题：经历如何不�
 - 这与本页的治理层判断互补：如果记忆只是共享沙箱里的文件，系统很容易在权限隔离、审计、跨用户泄漏和生命周期管理上欠账。
 - Dash 案例还提供了一条实践线索：错误模式、修复方式、新建视图 schema 和示例查询都可以作为“学习记录”写回数据层；Agent 变好并不是因为模型权重变了，而是上下文数据层变好了。
 
+## 新增视角：文件系统式 Memory 与 Dreaming
+
+- Anthropic 的新资料把 Memory 做成 Claude 可操作的虚拟文件系统，而不是只暴露为隐式向量检索或专用记忆工具；关键假设是模型已经擅长文件导航、编辑和组织文本。
+- 这条路线把“记忆分层”落到平台作用域上：组织级 memory 可以只读并低频更新，团队或任务级 memory 可以读写并快速变化；多 Agent 写入则需要乐观并发控制，避免互相覆盖。
+- 企业控制成为 Memory 原语的一部分：版本历史、diff、写入归因、导出和 redaction 不是附属后台，而是共享记忆能否进入生产的基础条件。
+- Dreaming 则把记忆管理从主任务 loop 中拆出来：它分析 session transcripts 与现有 memory，识别重复错误、低效模式、碎片化和冗余，再产出更有组织的 memory snapshot。
+- 这补强了本页对“整理/维护链路”的判断：成熟 Memory 不只在执行中写入，还需要异步、可审计、可验证的后台 curation；否则多 Agent 系统只会把局部经验堆成组织级噪音。
+
 ## 评估
 
 Memory 的评估不应只测"能否想起"，还要测：
@@ -188,7 +198,7 @@ Memory 的评估不应只测"能否想起"，还要测：
 - Raw 和 Derived 必须同时持有，并维持可追溯路径；二选一会导致要么太重要么漂移。
 - 遗忘不是删除，是依赖传播意识的谱系清算。
 - Memory 的高级形态不是更会存，而是更会治理。
-- 当前知识库的证据已覆盖治理、生命周期和实现性样本，但跨框架一手对照仍明显不足；尤其缺少 ChatGPT Memory、LangMem、NotebookLM 等不同产品边界的系统比较。
+- 当前知识库的证据已覆盖治理、生命周期、文件系统式共享 memory 和 Dreaming 式离线优化样本，但跨框架一手对照仍明显不足；尤其缺少 ChatGPT Memory、LangMem、NotebookLM 等不同产品边界的系统比较。
 
 ## 来源
 
@@ -201,11 +211,12 @@ Memory 的评估不应只测"能否想起"，还要测：
 - [Hermes 凭什么两个月接棒 OpenClaw？](../sources/2026-04-15-hermes-凭什么两个月接棒-openclaw.md)
 - [The Anatomy of an Agent Harness](../sources/2026-04-06-the-anatomy-of-an-agent-harness.md)
 - [Systems Engineering: Building Agentic Software That Works系统工程：构建能工作的代理软件](../sources/2026-04-08-systems-engineering-building-agentic-software-that-works系统工程-构建能工作的代理软件.md)
+- [用于自学习自主 Agents 的 Memory 与 Dreaming](../sources/2026-05-21-用于自学习自主-agents-的-memory-与-dreaming.md)
 
 ## 开放问题
 
 - 何时保留原始事件、何时压缩为摘要，目前仍缺少更清晰的分层协议与工程决策树。
 - 遗忘的谱系清算在实际系统（如 Letta/MemGPT）中如何实现，知识库目前缺少一手的实现细节。
 - 五种架构哲学之间的横向对照（ChatGPT Memory、LangMem、Letta 等）仍是明显空白。
-- 多 Agent 记忆共享的边界协议和一致性机制，目前主要停留在概念层，缺少实现样本。
+- 多 Agent 记忆共享已有 Anthropic Memory 的平台样本，但 Dreaming 输出如何验证、如何与人工维护组织知识冲突调解，仍缺少更细资料。
 - 程序性记忆（Skills）蒸馏出错时的检测与纠正机制目前没有专项资料。

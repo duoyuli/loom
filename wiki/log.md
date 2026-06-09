@@ -1,5 +1,14 @@
 # 更新日志
 
+## [2026-06-09 23:50] 巡检 | 增量结构与来源映射
+
+- 检查：`raw/sources` 31 条、`wiki/sources` 来源页 31 条、`wiki/sources/index.md` 注册表 31 条，未发现漏登记、重复映射、非 canonical 来源路径或 raw/source 数量漂移。
+- 检查：`wiki/` 当前 64 个 Markdown 页面范围内，去除代码块与行内代码示例后的内部 Markdown 链接校验通过；`concepts / entities / analyses` 目录索引覆盖全部内容页；未发现明显孤立内容页。
+- 检查：31 个 source 页面均有必需 frontmatter、`## 受影响页面` 与可回溯 raw 引用；注册表中的 raw 路径与 source 路径均能解析到实际文件。
+- 检查：`raw/assets` 2 份 PDF 均由 `raw/sources` 指针笔记接回来源页，未发现资产绕过 `raw/sources` 直接进入 `wiki/sources` 的旁路。
+- 结构判断：本轮未发现需要立即修正的事实冲突、断链或来源映射错误；`Knowledge as Code`、`Error-Driven Context Refinement`、搜索原语、Trace / 可观测性、ACI 工具设计和主流推理系统一手材料仍是后续更值得补的研究空白。
+- 备注：工作区已有未跟踪 `.claudian/`，本轮巡检未触碰；`omo sparkshell` 在当前环境不可用，已改用普通 shell 与 Node 只读脚本完成校验。
+
 ## [2026-05-23 22:03] 巡检 | 全库结构与来源映射
 
 - 检查：`raw/sources` 31 条、`wiki/sources` 来源页 31 条、`wiki/sources/index.md` 注册表 31 条，未发现漏登记、重复映射、非 canonical 来源路径或 raw/source 数量漂移。

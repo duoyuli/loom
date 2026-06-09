@@ -5,8 +5,8 @@
 标签:
   - 入口
   - 地图
-最近更新: 2026-05-23
-来源数: 31
+最近更新: 2026-06-10
+来源数: 33
 ---
 
 # 总览
@@ -26,6 +26,8 @@
 ## 当前焦点
 
 - 当前第一批内容聚焦于 AI Agent 工作流的长期结构，而不是短期工具测评。
+- 新摄入的 Addy Osmani `Loop Engineering.` 把编排视角抬高一层：在 [Harness Engineering](concepts/harness-engineering.md) 之上新增 [Loop Engineering](concepts/loop-engineering.md)，用自动化、worktree、Skills、连接器、子 Agent 和磁盘记忆设计“替你提示 Agent 的循环”，并回写 Agent 学习闭环与 Agentic Engineering。需保留证据边界：这是单一作者的早期、自我保留判断。
+- 新摄入的 Claude Code 团队 `Running an AI-native engineering org`，把 [Agentic Engineering](concepts/agentic-engineering.md) 推进到组织/流程层：当写代码变便宜，瓶颈转移到验证、评审和安全，规划转向 JIT、角色边界模糊、评审改为 trust-but-verify，并用 onboarding ramp / PR cycle time / Claude-assisted commits 三指标观察流程是否生效。本轮折入 Agentic Engineering，不单独立弱页；证据边界是单一团队自述、来自 Claude 提供方。
 - 新摄入的 `Learning Beyond Gradients` 把 Agentic Engineering 的学习对象继续推进到软件系统本身：新建 [Heuristic Learning](concepts/heuristic-learning.md)，用 `policy / state / feedback / trials / replay / memory / update mechanism` 描述 coding agent 如何通过测试、日志、视频回放和实验记录维护可解释程序策略。
 - 新摄入的 FDE 材料，把 AI Agent 产品化继续推进到组织层：真正的 [Forward Deployed Engineer](concepts/forward-deployed-engineer.md) 不是咨询或实施换名，而是把客户现场的真实工作流发现回流为平台能力的产品发现循环。
 - 新摄入的 Anthropic Memory / Dreaming 演讲，把 [Agent 记忆系统](concepts/agent-memory-systems.md) 继续推进到平台原语层：文件系统式 Memory、跨 Agent 共享作用域、乐观并发控制、版本审计和任务外 Dreaming 循环共同支撑组织级持续学习。
@@ -58,6 +60,7 @@
 
 - [Agentic Engineering](concepts/agentic-engineering.md)
 - [Harness Engineering](concepts/harness-engineering.md)
+- [Loop Engineering](concepts/loop-engineering.md)
 - [Agent 评测](concepts/agent-evaluation.md)
 - [Heuristic Learning](concepts/heuristic-learning.md)
 - [Forward Deployed Engineer](concepts/forward-deployed-engineer.md)
@@ -122,6 +125,8 @@
 
 ## 来源
 
+- [Loop Engineering.](sources/2026-06-09-loop-engineering.md)
+- [Running an AI-native engineering org](sources/2026-06-03-running-an-ai-native-engineering-org.md)
 - [从第一性原理思考 Agentic Engineering](sources/2026-04-23-从第一性原理思考-agentic-engineering.md)
 - [Learning Beyond Gradients](sources/2026-05-23-learning-beyond-gradients.md)
 - [用于自学习自主 Agents 的 Memory 与 Dreaming](sources/2026-05-21-用于自学习自主-agents-的-memory-与-dreaming.md)

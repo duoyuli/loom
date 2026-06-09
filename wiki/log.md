@@ -1,5 +1,19 @@
 # 更新日志
 
+## [2026-06-10 00:20] 巡检与补摄入 | Loop Engineering 与 AI-native engineering org
+
+- 巡检发现：iCloud 在本次会话期间陆续把两份新资料同步进仓（首次目录列举时尚未出现，等待后稳定在 33 条、无 `.icloud` 占位文件），`raw/sources` 增至 33 条，而 `wiki/sources` 与 `wiki/sources/index.md` 仍为 31 条，缺口为 `Loop Engineering.`（Addy Osmani，2026-06-09）与 `Running an AI-native engineering org`（Claude Code 团队，发布日校正为 2026-06-03），属来源注册表漂移。
+- 新增：`wiki/sources/2026-06-09-loop-engineering.md`（canonical；`source_date` 取发布日 2026-06-09，`published`）
+- 新增：`wiki/concepts/loop-engineering.md`，把 Loop Engineering 立为概念页：递归目标 + 五构件（自动化 / worktree / Skills / 插件连接器 / 子 Agent）+ 磁盘记忆，并明确其“坐在 Harness 上一层”的分层
+- 新增：`wiki/sources/2026-06-03-running-an-ai-native-engineering-org.md`（canonical；raw clip frontmatter 误记 `2001-06-03`，据 claude.com 原文与次日第三方转载校正为 `2026-06-03`，`published`）
+- 更新：`wiki/sources/index.md`，来源注册表增至 33 条
+- 更新：`wiki/concepts/harness-engineering.md`、`wiki/concepts/agent-learning-loop.md`、`wiki/concepts/agentic-engineering.md`，补入“Loop Engineering 在 Harness 之上的自运行编排层”这条线与互链
+- 更新：`wiki/concepts/agentic-engineering.md`，把 `Running an AI-native engineering org` 折入“组织与流程：AI-native 工程组织”小节（JIT 规划、ask-Claude-not-author、trust-but-verify 评审、角色模糊、三项团队指标），不单独立弱页
+- 更新：`wiki/concepts/index.md`、`wiki/index.md`、`wiki/overview.md`
+- 检查：修复后 `raw/sources`、`wiki/sources` 与来源注册表均为 33 条；wiki 当前 67 个 Markdown 页面范围内、去除代码块与行内代码后的内部链接校验通过；新概念页 `loop-engineering` 非孤立（被 `concepts/index`、`wiki/index`、`overview` 及三张回写概念页入链）。
+- 备注：保留证据边界——`Loop Engineering.` 是单一作者 X 长贴、作者本人持保留态度且与具体产品功能强绑定；`Running an AI-native engineering org` 是单一团队自述、来自 Claude 提供方，带自我背书倾向；均已在各自来源页标注，不作稳定共识。工作区既有未跟踪 `.claudian/` 未纳入本次提交；本轮在 06-09→06-10 本地时区交界完成，页面 `created/updated` 与日志取本地日 2026-06-10。
+- 后续空白：是否为“AI-native 工程组织 / 团队流程改造”单独立页，待更多组织级一手来源出现后评估；`Loop Engineering` 的“loop 在 harness 之上”分层仍缺仓库级或官方文档级证据。
+
 ## [2026-06-09 23:50] 巡检 | 增量结构与来源映射
 
 - 检查：`raw/sources` 31 条、`wiki/sources` 来源页 31 条、`wiki/sources/index.md` 注册表 31 条，未发现漏登记、重复映射、非 canonical 来源路径或 raw/source 数量漂移。

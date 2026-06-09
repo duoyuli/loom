@@ -9,7 +9,9 @@ sources:
   - ../sources/2026-05-21-当我们谈论-fde-时-我们在谈论什么.md
   - ../sources/2026-05-18-从0开发大模型的17种agent架构演进详细拆解.md
   - ../sources/2026-05-23-learning-beyond-gradients.md
-updated: 2026-05-23
+  - ../sources/2026-06-09-loop-engineering.md
+  - ../sources/2026-06-03-running-an-ai-native-engineering-org.md
+updated: 2026-06-10
 ---
 
 Agentic Engineering 指的是把 AI Agent 作为软件工程协作者嵌入 SDLC，但仍由工程师保留目标定义、约束设定、判断和验收权的一套工程方法。它区别于 `vibe coding` 的关键，不是是否使用 AI 写代码，而是是否把上下文、规格、验证、知识治理和反馈闭环做成可持续的工程系统。
@@ -85,6 +87,20 @@ Agentic Engineering 指的是把 AI Agent 作为软件工程协作者嵌入 SDLC
 
 它也对 Agentic Engineering 加了一条约束：长期价值不来自不断堆规则，而来自同时维护回归保护和复杂度压缩。否则所谓学习系统会退化成无法审计的规则堆。
 
+### 组织与流程：AI-native 工程组织
+
+新摄入的 [Running an AI-native engineering org](../sources/2026-06-03-running-an-ai-native-engineering-org.md) 把 Agentic Engineering 从“个人/团队协作方法”继续推进到“组织与流程改造”这一层：当 agentic coding 成为默认，写代码、写测试、重构不再是瓶颈，瓶颈转移到验证、代码评审和安全。
+
+这篇 Claude Code 团队的自述给出几条可复用的组织判断：
+
+- 规划从长周期路线图转向 JIT（即时）规划：先做原型、放内部用户、按反馈行动，因为高速迭代会让远期路线图快速过期。
+- 默认动作从“找作者问”变成“先问 Claude，再问能否自动化”，把重复的上下文获取和例行工作流持续 Claudify。
+- 代码评审转为 trust-but-verify：模型处理风格、lint、抓 bug 和补测试，人留在法务、安全边界和产品品味等专业判断处；而且这个信任/验证边界会随模型能力持续移动，需要定期重估。
+- 角色边界开始模糊（PM 写代码、工程师做设计），招聘更看重有产品感的创造型 builder 和有深度系统经验的工程师，而不是原始吞吐。
+- 落地靠“少数不可谈判核心原则（dogfood、扁平、敢砍旧流程）+ pod 自治”，并用 onboarding ramp time、PR cycle time、Claude-assisted commits 三个指标观察新流程是否真的生效——但要警惕把吞吐量误当成功。
+
+需要保留的证据边界：这是单一团队（Claude Code）的经验自述，且来自 Claude 的提供方，带自我背书倾向；它适合作为组织改造的方向性参考，而非可直接外推到所有团队的基准。这一维度本轮折入本页，是否单独立“AI-native 工程组织”页留作后续更多组织级来源出现后评估。
+
 ## 横向位置
 
 Agentic Engineering 在本知识库中更像“总方法论”，下方连接多个已存在概念：
@@ -98,6 +114,7 @@ Agentic Engineering 在本知识库中更像“总方法论”，下方连接多
 - [Agent Session Management](agent-session-management.md)：管理长任务里的会话边界、历史保留和恢复点。
 - [Agent 学习闭环](agent-learning-loop.md)：把协作中出现的新经验沉淀回长期知识资产。
 - [Heuristic Learning](heuristic-learning.md)：把可执行软件系统本身视为会被 coding agent 持续更新的学习对象。
+- [Loop Engineering](loop-engineering.md)：把“自运行编排”这一形态显式化——人从执行者迁移为 loop 设计者，但仍保留判断与验收权。
 
 它也可以作为 [Agent 工作流分层框架](../analyses/agentic-workflow-stack.md) 的上位解释：工作空间、协作方法和学习闭环三层，都是为了让 Agentic Engineering 不停留在一次性对话里。
 
@@ -109,6 +126,7 @@ Agentic Engineering 在本知识库中更像“总方法论”，下方连接多
 - 与 [Context Engineering](context-engineering.md)：Context 是 Agentic Engineering 的基础设施之一，因为 AI 只能利用它能看到的知识。
 - 与 [Spec-driven Development](spec-driven-development.md)：Spec 是降低早期信息损耗、把盲区转为开放区的关键机制。
 - 与 [Agent 学习闭环](agent-learning-loop.md)：学习闭环解决方法论如何随项目错误和团队经验继续演进。
+- 与 [Loop Engineering](loop-engineering.md)：Loop Engineering 是 Agentic Engineering 里“自运行编排”这一具体形态，把人推向 loop 设计者；但它反复强调“Build the loop, stay the engineer”，与本页“工程师不退出、只迁移角色”的判断一致。
 - 与 [Jagged Intelligence](jagged-intelligence.md)：模型能力不平滑，解释了为什么 Agentic Engineering 不能简化为“全自动放权”。
 
 ## 当前判断
@@ -144,3 +162,5 @@ Heuristic Learning 来源补充了另一个方向：当任务边界清晰、反�
 - [当我们谈论 FDE 时，我们在谈论什么？](../sources/2026-05-21-当我们谈论-fde-时-我们在谈论什么.md)
 - [从0开发大模型的17种Agent架构演进详细拆解](../sources/2026-05-18-从0开发大模型的17种agent架构演进详细拆解.md)
 - [Learning Beyond Gradients](../sources/2026-05-23-learning-beyond-gradients.md)
+- [Loop Engineering.](../sources/2026-06-09-loop-engineering.md)
+- [Running an AI-native engineering org](../sources/2026-06-03-running-an-ai-native-engineering-org.md)

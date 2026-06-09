@@ -12,6 +12,7 @@
 - [Agent 记忆系统](agent-memory-systems.md)：管理跨步骤、跨 session 的持久状态写入、存放、检索与演化。
 - [Spec-driven Development](spec-driven-development.md)：先写契约，再让 Agent 动手实现。
 - [Harness Engineering](harness-engineering.md)：为 Agent 建立约束、反馈与清理体系。
+- [Loop Engineering](loop-engineering.md)：在 Harness 之上再加一层自运行编排——用自动化、worktree、Skills、连接器、子 Agent 和磁盘记忆设计“替你提示 Agent 的循环”。
 - [Agent 评测](agent-evaluation.md)：为检索、生成、工具行为、长链路一致性和生产健康建立可回归的质量判断体系。
 - [Heuristic Learning](heuristic-learning.md)：让 coding agent 持续维护程序策略、测试、日志、回放和 memory，使显式软件系统在反馈中变强。
 - [Forward Deployed Engineer](forward-deployed-engineer.md)：嵌入客户现场、把真实工作流发现回流为平台能力的前线工程角色。

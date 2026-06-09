@@ -8,7 +8,8 @@ sources:
   - ../sources/2026-04-23-从第一性原理思考-agentic-engineering.md
   - ../sources/2026-05-21-用于自学习自主-agents-的-memory-与-dreaming.md
   - ../sources/2026-05-23-learning-beyond-gradients.md
-updated: 2026-05-23
+  - ../sources/2026-06-09-loop-engineering.md
+updated: 2026-06-10
 ---
 
 “让 Agent 替我学习”描述的是一种采集、提炼、应用三段式知识闭环：人不再亲自处理所有一手信息，而是让 Agent 先筛选和压缩，再把结果回灌到未来工作流中。
@@ -71,6 +72,12 @@ updated: 2026-05-23
 - 这让学习结果不只表现为文档、Skill 或 memory，也表现为一套可运行、可复现、可回归的 Heuristic System。
 - 它也补上一条防腐化要求：闭环不能只吸收反馈，还必须周期性压缩历史，把局部补丁重构回更简单、更可维护的表示。
 
+## 新增视角：Loop Engineering 把闭环外化成自运行系统
+
+- 新摄入的 `Loop Engineering.` 资料把“采集—提炼—应用”闭环从一种工作方式推进成一个可设计的系统对象：你不再亲自一轮轮提示 Agent，而是设计一个会自己找活、派活、验收、记录并决定下一步的 loop。
+- 它给出了闭环外化后的具体落点：自动化负责按节奏发现工作（采集），子 Agent 负责执行与相互检查（提炼/验证），磁盘上的状态文件负责跨运行记忆（应用与延续）。作者那句“Agent 会忘，仓库不会忘”正好对应本页“仓库是闭环里的长期记忆层”这一判断。
+- 但它也加重了本页已有的风险提醒：当闭环跑在无人值守的定时器上，验证仍在人身上、理解力会随你不读产出而腐化（comprehension debt）、容易陷入“认知投降”。因此 [Loop Engineering](loop-engineering.md) 的口号是“Build the loop, stay the engineer”，而不是把人删出闭环。
+
 ## 与知识库的关系
 
 这个仓库可以看作该闭环中的长期记忆层之一：
@@ -88,6 +95,7 @@ updated: 2026-05-23
 - [Heuristic Learning](heuristic-learning.md) 把闭环进一步落到可执行软件系统，强调代码、测试、回放和实验记录也可以成为持续学习的承载物。
 - [Spec-driven Development](spec-driven-development.md) 决定交付契约；学习闭环决定哪些新规则会被回写成未来任务的默认约束。
 - [Harness Engineering](harness-engineering.md) 负责把反馈与清理机制工程化；学习闭环强调这些反馈应沉淀为长期可复用知识。
+- [Loop Engineering](loop-engineering.md) 把这条闭环外化成一个跑在定时器上的自运行系统：自动化发现、子 Agent 执行与检查、状态文件跨运行记忆。
 - [Jagged Intelligence](jagged-intelligence.md) 解释了为什么人仍需保留筛选、纠偏和边界判断，而不能把闭环误解为全自动代理。
 
 ## 风险与限制
@@ -109,3 +117,4 @@ updated: 2026-05-23
 - [从第一性原理思考 Agentic Engineering](../sources/2026-04-23-从第一性原理思考-agentic-engineering.md)
 - [用于自学习自主 Agents 的 Memory 与 Dreaming](../sources/2026-05-21-用于自学习自主-agents-的-memory-与-dreaming.md)
 - [Learning Beyond Gradients](../sources/2026-05-23-learning-beyond-gradients.md)
+- [Loop Engineering.](../sources/2026-06-09-loop-engineering.md)

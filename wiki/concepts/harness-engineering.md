@@ -21,7 +21,8 @@ sources:
   - ../sources/2026-05-21-当我们谈论-fde-时-我们在谈论什么.md
   - ../sources/2026-05-18-从0开发大模型的17种agent架构演进详细拆解.md
   - ../sources/2026-05-23-learning-beyond-gradients.md
-updated: 2026-05-23
+  - ../sources/2026-06-09-loop-engineering.md
+updated: 2026-06-10
 ---
 
 Harness Engineering 指的是为 Agent 搭建一套可执行的约束体系，让模型输出被规则、测试、反馈和清理流程持续塑形，而不是只靠提示词或人工兜底。
@@ -183,8 +184,15 @@ OpenClaw 的资料把这件事进一步写实：Harness 不只是“有规则”
 - 因此一部分 Harness 不能只靠总部预设完成，而需要通过 [Forward Deployed Engineer](forward-deployed-engineer.md) 这类前线角色在真实部署中发现，再回流为平台级能力。
 - 这条线也提供了一个防退化标准：如果每次部署都靠人力定制而不回流平台，所谓 Harness 很可能只是服务交付脚本；只有复用率上升、下一次部署更省力，才说明它真的变成了产品能力。
 
+## 新增视角：Loop Engineering 在 Harness 之上再加一层编排
+
+- 新摄入的 `Loop Engineering.` 资料给出了一个明确分层判断：Harness 是“单个 Agent 运行其中的环境”，而 [Loop Engineering](loop-engineering.md) 坐在它的上一层——一个跑在定时器上、会孵化子 Agent、会自我投喂的编排系统。
+- 这条分层对本页有用，因为它把此前散落在 Harness 里的自动化、worktree、子 Agent 编排、磁盘记忆重新归位：它们既可以被读成单个 harness 的组件，也可以被读成上层 loop 调度 harness 的接口。换句话说，同一组机制在“一个 Agent 的运行环境”和“驱动多次运行的循环”两个尺度上都会出现。
+- 需要保留的证据边界：这是单一作者的早期框架（作者本人持保留态度），且与具体产品功能（Codex Automations、Claude Code `/loop` `/goal`、hooks）强绑定；它适合作为“harness 之上还有编排层”的方向参考，而不应被当成已验证的稳定分层标准。
+
 ## 与其他概念的关系
 
+- [Loop Engineering](loop-engineering.md) 在 Harness 之上再加一层自运行编排：harness 治理单个 Agent 的运行环境，loop 则在其上加节奏、自我触发和跨运行记忆。
 - [Agentic Engineering](agentic-engineering.md) 把 Harness 视为复杂约束下可靠协作的必要组成，尤其用于控制概率性输出和错误累积。
 - [Context Engineering](context-engineering.md) 关注“Agent 看到了什么”。
 - [Agent 评测](agent-evaluation.md) 关注“系统如何知道 Agent 是否仍在正确运行”，并把验证回路转成离线、在线和生产观测指标。
@@ -230,3 +238,4 @@ OpenClaw 的资料把这件事进一步写实：Harness 不只是“有规则”
 - [当我们谈论 FDE 时，我们在谈论什么？](../sources/2026-05-21-当我们谈论-fde-时-我们在谈论什么.md)
 - [从0开发大模型的17种Agent架构演进详细拆解](../sources/2026-05-18-从0开发大模型的17种agent架构演进详细拆解.md)
 - [Learning Beyond Gradients](../sources/2026-05-23-learning-beyond-gradients.md)
+- [Loop Engineering.](../sources/2026-06-09-loop-engineering.md)

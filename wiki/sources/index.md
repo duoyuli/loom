@@ -2,7 +2,7 @@
 title: 来源索引
 type: source-index
 status: active
-updated: 2026-05-23
+updated: 2026-06-10
 ---
 
 本页是 `wiki/sources/` 的来源注册表与第一检索入口。它的职责不是重复每个来源页正文，而是显式登记 raw 路径、当前 source 页、canonical 路径、日期依据和迁移状态，避免写作、分析和巡检时只能靠猜文件名。
@@ -10,7 +10,7 @@ updated: 2026-05-23
 ## 使用约定
 
 - 新增或查找来源时，先看本页，再进入具体 source 页。
-- 当前注册表中的 31 条来源都已经迁到 canonical 路径；后续新增来源也应直接以 canonical 路径入库。
+- 当前注册表中的 33 条来源都已经迁到 canonical 路径；后续新增来源也应直接以 canonical 路径入库。
 - 如果未来再次出现遗留路径，仍用 `migration_status` 显式标记，而不是靠约定猜测。
 - `source_date_basis` 仅有两种：`published` 表示已知资料发布日期，`created` 表示发布日期未知，暂用 `raw/sources/` 文件创建时间兜底。
 
@@ -18,6 +18,8 @@ updated: 2026-05-23
 
 | source_date | basis | title | current_wiki_path | canonical_wiki_path | raw_path | migration_status |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-06-09 | published | Loop Engineering. | [2026-06-09-loop-engineering.md](2026-06-09-loop-engineering.md) | `wiki/sources/2026-06-09-loop-engineering.md` | `raw/sources/Loop Engineering..md` | `canonical` |
+| 2026-06-03 | published | Running an AI-native engineering org | [2026-06-03-running-an-ai-native-engineering-org.md](2026-06-03-running-an-ai-native-engineering-org.md) | `wiki/sources/2026-06-03-running-an-ai-native-engineering-org.md` | `raw/sources/Running an AI-native engineering org.md` | `canonical` |
 | 2026-05-23 | created | Learning Beyond Gradients | [2026-05-23-learning-beyond-gradients.md](2026-05-23-learning-beyond-gradients.md) | `wiki/sources/2026-05-23-learning-beyond-gradients.md` | `raw/sources/Learning Beyond Gradients.md` | `canonical` |
 | 2026-05-21 | published | 当我们谈论 FDE 时，我们在谈论什么？ | [2026-05-21-当我们谈论-fde-时-我们在谈论什么.md](2026-05-21-当我们谈论-fde-时-我们在谈论什么.md) | `wiki/sources/2026-05-21-当我们谈论-fde-时-我们在谈论什么.md` | `raw/sources/当我们谈论 FDE 时，我们在谈论什么？.md` | `canonical` |
 | 2026-05-21 | published | 用于自学习自主 Agents 的 Memory 与 Dreaming | [2026-05-21-用于自学习自主-agents-的-memory-与-dreaming.md](2026-05-21-用于自学习自主-agents-的-memory-与-dreaming.md) | `wiki/sources/2026-05-21-用于自学习自主-agents-的-memory-与-dreaming.md` | `raw/sources/用于自学习自主 Agents 的 Memory 与 Dreaming.md` | `canonical` |

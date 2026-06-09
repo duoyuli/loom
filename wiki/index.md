@@ -22,6 +22,7 @@
 
 - [概念索引](concepts/index.md)：按主题分组的概念与方法目录。
 - [Agentic Engineering](concepts/agentic-engineering.md)：把 AI Agent 嵌入软件工程全链条，并用上下文、规格、验证、知识治理和错误回写来维持生产级约束。
+- [Loop Engineering](concepts/loop-engineering.md)：在 Harness 之上再加一层自运行编排，用自动化、worktree、Skills、连接器、子 Agent 和磁盘记忆设计“替你提示 Agent 的循环”。
 - [Agent 评测](concepts/agent-evaluation.md)：把检索、生成、工具行为、长链路一致性、成本和延迟纳入同一套 evaluation harness。
 - [Heuristic Learning](concepts/heuristic-learning.md)：把程序策略、状态检测器、测试、日志、回放和 memory 作为 coding agent 可持续更新的学习对象。
 - [Forward Deployed Engineer](concepts/forward-deployed-engineer.md)：把客户现场的真实工作流发现回流为平台能力的前线工程角色。
@@ -40,6 +41,7 @@
 
 ## 维护提醒
 
+- 2026-06-10 增量巡检与补摄入：巡检发现 iCloud 在本次会话期间陆续把两份新资料同步进仓，`raw/sources` 增至 33 条，而 `wiki/sources` 与来源注册表仍停留在 31 条，缺口为 Addy Osmani 的 `Loop Engineering.`（2026-06-09）与 Claude Code 团队的 `Running an AI-native engineering org`（2026-06-03）。本轮补摄入两份来源：为前者新增 [Loop Engineering](concepts/loop-engineering.md) 概念页并回写 [Harness Engineering](concepts/harness-engineering.md)、[Agent 学习闭环](concepts/agent-learning-loop.md)、[Agentic Engineering](concepts/agentic-engineering.md)；后者折入 [Agentic Engineering](concepts/agentic-engineering.md) 的组织/流程维度，不单独立弱页。修复后 `raw/sources`、`wiki/sources` 与来源注册表均为 33 条，67 个 wiki Markdown 页面范围内的内部链接校验通过。证据边界：两份均为单一作者/单一团队的早期自述（Loop Engineering 作者本人持保留态度，AI-native org 来自 Claude 提供方），已在各自来源页标注，不作稳定共识处理。
 - 2026-06-09 增量巡检确认：`raw/sources`、`wiki/sources` 与来源注册表均为 31 条；64 个 wiki Markdown 页面范围内的内部链接校验通过；目录索引覆盖全部 concepts/entities/analyses 内容页；31 个 source 页均有必需 frontmatter、`## 受影响页面` 与可回溯 raw 引用；2 份 `raw/assets` 均由 raw 指针笔记接回来源页。本轮未发现需要立即修正的事实冲突、断链或来源映射错误；后续空白仍集中在 `Knowledge as Code`、`Error-Driven Context Refinement`、搜索原语、Trace / 可观测性、ACI 工具设计和推理系统一手材料。
 - 2026-05-23 晚间巡检确认：`raw/sources`、`wiki/sources` 与来源注册表均为 31 条；64 个 wiki Markdown 页面范围内的内部链接校验通过；目录索引覆盖全部 concepts/entities/analyses 内容页；31 个 source 页均有 `## 受影响页面` 与可回溯 raw 引用；2 份 `raw/assets` 均由 raw 指针笔记接回来源页。
 - 2026-05-23 新摄入 `Learning Beyond Gradients` 后，新增 [Heuristic Learning](concepts/heuristic-learning.md) 概念页，把 coding agent 维护显式软件系统的现象沉淀为 `policy / state / feedback / trials / replay / memory / update mechanism` 闭环，并回写 Agent 学习闭环、Agent 训练、后训练与奖励设计、Harness Engineering 和 Agentic Engineering；修复后 `raw/sources`、`wiki/sources` 与来源注册表均为 31 条。

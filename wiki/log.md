@@ -1,5 +1,16 @@
 # 更新日志
 
+## [2026-06-10 13:12] 巡检与补摄入 | Fable loops 与 Agent memory harness
+
+- 巡检发现：当前工作区有 3 份尚未摄入的 `raw/sources` 原始资料：`Designing loops with Fable 5`（2026-06-10）、`Memory Architecture of GitHub Copilot`（2026-06-10）、`State of Memory in Agent Harness`（2026-06-02）。按本轮自动化修正后的规则，遇到未摄入 raw 材料应自动正式摄入，而不是只列为待处理。
+- 新增：`wiki/sources/2026-06-10-designing-loops-with-fable-5.md`（canonical；`source_date` 取发布日 2026-06-10，`published`）
+- 新增：`wiki/sources/2026-06-10-memory-architecture-of-github-copilot.md`（canonical；`source_date` 取发布日 2026-06-10，`published`）
+- 新增：`wiki/sources/2026-06-02-state-of-memory-in-agent-harness.md`（canonical；`source_date` 取发布日 2026-06-02，`published`）
+- 更新：`wiki/sources/index.md`，来源注册表增至 36 条。
+- 更新：`wiki/concepts/loop-engineering.md`、`wiki/concepts/agent-learning-loop.md`、`wiki/concepts/agent-memory-systems.md`、`wiki/concepts/harness-engineering.md`、`wiki/concepts/agent-evaluation.md`，补入 Fable 5 的 `goal / rubric / grader / memory` loop、Copilot citation-verified memory、harness memory 横向比较轴，以及 memory benchmark 从 recall 走向 action utility 的边界。
+- 更新：`wiki/index.md`、`wiki/overview.md`，同步来源覆盖范围、来源数与维护提醒。
+- 证据边界：`Designing loops with Fable 5` 是 Anthropic 员工 X 长帖与小规模实验分享，适合沉淀机制形状，不把性能数值当稳定基准；两篇 Mem0 资料是供应商视角综述，适合作为问题地图，后续仍需补 GitHub / OpenAI / Anthropic / Hermes / OpenClaw 等一手材料。
+
 ## [2026-06-10 00:20] 巡检与补摄入 | Loop Engineering 与 AI-native engineering org
 
 - 巡检发现：iCloud 在本次会话期间陆续把两份新资料同步进仓（首次目录列举时尚未出现，等待后稳定在 33 条、无 `.icloud` 占位文件），`raw/sources` 增至 33 条，而 `wiki/sources` 与 `wiki/sources/index.md` 仍为 31 条，缺口为 `Loop Engineering.`（Addy Osmani，2026-06-09）与 `Running an AI-native engineering org`（Claude Code 团队，发布日校正为 2026-06-03），属来源注册表漂移。

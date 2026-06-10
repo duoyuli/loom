@@ -5,7 +5,10 @@ status: active
 sources:
   - ../sources/2026-05-13-building-an-evaluation-harness-for-production-ai-agents-a-12-metric-framework-from-100-deployments.md
   - ../sources/2026-03-19-你不知道的-agent-原理-架构与工程实践.md
-updated: 2026-05-21
+  - ../sources/2026-06-10-designing-loops-with-fable-5.md
+  - ../sources/2026-06-10-memory-architecture-of-github-copilot.md
+  - ../sources/2026-06-02-state-of-memory-in-agent-harness.md
+updated: 2026-06-10
 ---
 
 Agent 评测指的是为多步骤、会用工具、会检索和会产生长期状态影响的 AI Agent 建立可复现、可观测、可回归的质量判断体系。它不只回答“最终答案对不对”，还要定位检索、生成、工具选择、工具执行、长链路一致性、成本和延迟分别在哪里失控。
@@ -45,6 +48,12 @@ Agent 评测处在 [Harness Engineering](harness-engineering.md)、[Context Engi
 
 这组拆法的价值在于定位失败层级。比如“幻觉”不一定只来自模型胡编，也可能来自上游检索召回不足、上下文排序错误、prompt 鼓励外推或工具结果没有被正确带回 trace。
 
+## 新增视角：Grader、生产 outcome 与 memory benchmark 的边界
+
+- `Designing loops with Fable 5` 把评测放进执行 loop：独立 grader 子 Agent 在独立上下文里判定 rubric 是否满足，能缓解模型对自身输出 self-critique 过宽的问题。
+- Copilot Memory 的资料提示，memory 系统也需要生产 outcome，而不仅是 recall 分数：PR merge rate、code review feedback 这类指标虽然口径仍需一手核对，但方向上比“是否想起旧事实”更接近真实效用。
+- `State of Memory in Agent Harness` 对 memory benchmark 的批评值得并入本页：很多基准仍是 recall-centric，不能说明记忆是否改善行动、是否能处理 staleness、污染、选择性遗忘和长跨度生产规模。
+
 ## 在线与离线
 
 离线评测适合进入 CI/CD：当检索策略、prompt 模板、工具 schema 或 agent logic 发生变化时，用固定样本抓回归。它的前提是有标注集、标准答案或至少有人工确认的相关 chunk。
@@ -63,6 +72,7 @@ Agent 评测不应被理解为上线前的最后一道 QA，而是 production ha
 - [Context Engineering](context-engineering.md)：检索指标直接衡量上下文是否相关、完整、排序正确且足够快。
 - [Agentic Engineering](agentic-engineering.md)：Agent 评测把“多层次验证”从开发流程推进到真实生产流量。
 - [Agent 训练](agent-training.md)：训练侧 eval、grader 和 reward 会影响模型行为；应用侧评测则约束部署后的系统行为。
+- [Agent 记忆系统](agent-memory-systems.md)：memory 评测不能只测召回，还要测记忆是否被验证、是否改善行动、是否避免旧事实污染。
 
 ## 开放问题
 
@@ -74,3 +84,6 @@ Agent 评测不应被理解为上线前的最后一道 QA，而是 production ha
 
 - [Building an Evaluation Harness for Production AI Agents: A 12-Metric Framework From 100+ Deployments](../sources/2026-05-13-building-an-evaluation-harness-for-production-ai-agents-a-12-metric-framework-from-100-deployments.md)
 - [你不知道的 Agent：原理、架构与工程实践](../sources/2026-03-19-你不知道的-agent-原理-架构与工程实践.md)
+- [Designing loops with Fable 5](../sources/2026-06-10-designing-loops-with-fable-5.md)
+- [Memory Architecture of GitHub Copilot](../sources/2026-06-10-memory-architecture-of-github-copilot.md)
+- [State of Memory in Agent Harness](../sources/2026-06-02-state-of-memory-in-agent-harness.md)

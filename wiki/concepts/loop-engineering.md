@@ -4,6 +4,7 @@ type: concept
 status: active
 sources:
   - ../sources/2026-06-09-loop-engineering.md
+  - ../sources/2026-06-10-designing-loops-with-fable-5.md
 updated: 2026-06-10
 ---
 
@@ -11,7 +12,7 @@ Loop Engineering（循环工程）指的是把人从“逐轮提示 Agent 的人
 
 ## 定义
 
-按当前唯一来源（Addy Osmani 的 X 长文）的说法，一个 loop 可以理解为一个递归目标：你定义目的，AI 迭代直到完成。它由五个构件加一处记忆组成，作者称 Claude Code 与 Codex 现在都凑齐了这五件：
+按最早立页来源（Addy Osmani 的 X 长文）的说法，一个 loop 可以理解为一个递归目标：你定义目的，AI 迭代直到完成。它由五个构件加一处记忆组成，作者称 Claude Code 与 Codex 现在都凑齐了这五件：
 
 1. 自动化（Automations）：按计划自行触发，自己做发现和分诊，是让“循环”成为循环而非一次性运行的心跳。
 2. Worktree：让并行的多个 Agent 各自在独立 checkout 上工作，不互相踩文件。
@@ -35,6 +36,12 @@ Loop Engineering（循环工程）指的是把人从“逐轮提示 Agent 的人
 - 它与 factory model（构建软件的系统）、long-running agents（磁盘记忆）属于同一作者的同一条线索，是这条线索里最靠近“编排层”的命名。
 - 它和 [Agentic Engineering](agentic-engineering.md) 的关系是：后者是把 AI 嵌入整个 SDLC 的总方法论并坚持工程师保留判断权，Loop Engineering 则是其中“自运行编排”这一具体形态——它把人从执行者推向 loop 设计者，但反复强调“Build the loop, stay the engineer”，人不能退化成只按启动键的人。
 
+## 新增视角：Loop 需要可评分目标和独立 verifier
+
+- `Designing loops with Fable 5` 把 loop 的运行时形状压得更细：一个有效 loop 不只是反复调用模型，而是把目标/rubric、外部反馈、日志读取、独立 grader 子 Agent、停止条件和跨 session memory 接在一起。
+- 其中最关键的补充是 maker/checker 分离：写代码或做实验的 Agent 不适合给自己打分，独立上下文里的 verifier 更像 loop 的传感器。
+- 这让 Loop Engineering 的“递归目标”定义更可操作：目标必须能被环境或 grader 反复检查，否则 loop 只是无人值守地重复提示。
+
 ## 与其他概念的关系
 
 - [Harness Engineering](harness-engineering.md)：harness 是被编排的运行环境，loop 是其上的自运行编排层；loop 复用 harness 的工具、状态、守卫和验证，但额外加上节奏、自我触发和跨运行记忆。
@@ -53,3 +60,4 @@ Loop Engineering（循环工程）指的是把人从“逐轮提示 Agent 的人
 ## 来源
 
 - [Loop Engineering.](../sources/2026-06-09-loop-engineering.md)
+- [Designing loops with Fable 5](../sources/2026-06-10-designing-loops-with-fable-5.md)

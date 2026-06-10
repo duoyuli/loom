@@ -22,6 +22,9 @@ sources:
   - ../sources/2026-05-18-从0开发大模型的17种agent架构演进详细拆解.md
   - ../sources/2026-05-23-learning-beyond-gradients.md
   - ../sources/2026-06-09-loop-engineering.md
+  - ../sources/2026-06-10-designing-loops-with-fable-5.md
+  - ../sources/2026-06-10-memory-architecture-of-github-copilot.md
+  - ../sources/2026-06-02-state-of-memory-in-agent-harness.md
 updated: 2026-06-10
 ---
 
@@ -190,6 +193,12 @@ OpenClaw 的资料把这件事进一步写实：Harness 不只是“有规则”
 - 这条分层对本页有用，因为它把此前散落在 Harness 里的自动化、worktree、子 Agent 编排、磁盘记忆重新归位：它们既可以被读成单个 harness 的组件，也可以被读成上层 loop 调度 harness 的接口。换句话说，同一组机制在“一个 Agent 的运行环境”和“驱动多次运行的循环”两个尺度上都会出现。
 - 需要保留的证据边界：这是单一作者的早期框架（作者本人持保留态度），且与具体产品功能（Codex Automations、Claude Code `/loop` `/goal`、hooks）强绑定；它适合作为“harness 之上还有编排层”的方向参考，而不应被当成已验证的稳定分层标准。
 
+## 新增视角：记忆和 grader 都应成为 Harness gate
+
+- `Designing loops with Fable 5` 把 grader 子 Agent、rubric、sandbox、日志轮询和停止条件放进同一条 loop，提醒 Harness 的验证层不只是测试，也包括“谁有资格宣布可以停”。
+- Copilot Memory 的 citation verification 样本则说明，memory 进入行动前也需要 gate：被召回的旧事实必须回到当前代码分支核验，不能因为“记得”就直接相信。
+- `State of Memory in Agent Harness` 把这两者放进更大的 runtime 视角：context orchestration、tools、agent coordination 与 memory 正在合成 harness 产品本身；如果 memory bounded、local、keyword-only 或缺 staleness 处理，Harness 就会把旧错误稳定注入未来任务。
+
 ## 与其他概念的关系
 
 - [Loop Engineering](loop-engineering.md) 在 Harness 之上再加一层自运行编排：harness 治理单个 Agent 的运行环境，loop 则在其上加节奏、自我触发和跨运行记忆。
@@ -239,3 +248,6 @@ OpenClaw 的资料把这件事进一步写实：Harness 不只是“有规则”
 - [从0开发大模型的17种Agent架构演进详细拆解](../sources/2026-05-18-从0开发大模型的17种agent架构演进详细拆解.md)
 - [Learning Beyond Gradients](../sources/2026-05-23-learning-beyond-gradients.md)
 - [Loop Engineering.](../sources/2026-06-09-loop-engineering.md)
+- [Designing loops with Fable 5](../sources/2026-06-10-designing-loops-with-fable-5.md)
+- [Memory Architecture of GitHub Copilot](../sources/2026-06-10-memory-architecture-of-github-copilot.md)
+- [State of Memory in Agent Harness](../sources/2026-06-02-state-of-memory-in-agent-harness.md)

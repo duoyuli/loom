@@ -9,6 +9,7 @@ sources:
   - ../sources/2026-05-21-用于自学习自主-agents-的-memory-与-dreaming.md
   - ../sources/2026-05-23-learning-beyond-gradients.md
   - ../sources/2026-06-09-loop-engineering.md
+  - ../sources/2026-06-10-designing-loops-with-fable-5.md
 updated: 2026-06-10
 ---
 
@@ -78,6 +79,12 @@ updated: 2026-06-10
 - 它给出了闭环外化后的具体落点：自动化负责按节奏发现工作（采集），子 Agent 负责执行与相互检查（提炼/验证），磁盘上的状态文件负责跨运行记忆（应用与延续）。作者那句“Agent 会忘，仓库不会忘”正好对应本页“仓库是闭环里的长期记忆层”这一判断。
 - 但它也加重了本页已有的风险提醒：当闭环跑在无人值守的定时器上，验证仍在人身上、理解力会随你不读产出而腐化（comprehension debt）、容易陷入“认知投降”。因此 [Loop Engineering](loop-engineering.md) 的口号是“Build the loop, stay the engineer”，而不是把人删出闭环。
 
+## 新增视角：验证后的记忆才会改善下一次行动
+
+- `Designing loops with Fable 5` 把跨 session memory 的有效使用拆成 `fail -> investigate -> verify -> distill -> consult`。这条链路比“写入 memory”更重要，因为只有被调查、验证、抽象并在下一轮优先咨询的记忆，才真正进入学习闭环。
+- 对本页而言，这补清了“应用层”的判断标准：学习结果不是沉淀进文件就结束，而是要在下一次任务前被读取，并改变后续决策。
+- 它也提醒，memory 指令本身可能需要 task-specific 设计；否则系统会堆积失败笔记和猜测，却很少回到旧笔记中提炼规则。
+
 ## 与知识库的关系
 
 这个仓库可以看作该闭环中的长期记忆层之一：
@@ -118,3 +125,4 @@ updated: 2026-06-10
 - [用于自学习自主 Agents 的 Memory 与 Dreaming](../sources/2026-05-21-用于自学习自主-agents-的-memory-与-dreaming.md)
 - [Learning Beyond Gradients](../sources/2026-05-23-learning-beyond-gradients.md)
 - [Loop Engineering.](../sources/2026-06-09-loop-engineering.md)
+- [Designing loops with Fable 5](../sources/2026-06-10-designing-loops-with-fable-5.md)

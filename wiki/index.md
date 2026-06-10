@@ -10,7 +10,7 @@
 ## 来源
 
 - [来源索引](sources/index.md)：来源注册表与第一检索入口，统一记录 raw 路径、当前 source 页、canonical 路径、日期依据与迁移状态。
-- 当前 `sources/` 已覆盖 Agentic Engineering、Agent 架构控制流、Agent 工程、Memory / Dreaming、Heuristic Learning、Harness、Context、Agent 评测、FDE、训练栈、Transformer 前史、LLM 推理系统、KV/Prompt Cache 和 agentic software 系统工程等主题；Harness 线索也继续从高自动化编排与 `agent-legible` 仓库，扩展到企业工程里的 `spec / handoff / checkpoint / evidence`、生产 evaluation harness、前线产品发现和程序系统学习。查找具体来源时，优先从来源索引反查，而不是猜文件名。
+- 当前 `sources/` 已覆盖 Agentic Engineering、Agent 架构控制流、Agent 工程、Memory / Dreaming、Heuristic Learning、Harness、Context、Agent 评测、FDE、训练栈、Transformer 前史、LLM 推理系统、KV/Prompt Cache 和 agentic software 系统工程等主题；Harness 线索也继续从高自动化编排与 `agent-legible` 仓库，扩展到企业工程里的 `spec / handoff / checkpoint / evidence`、生产 evaluation harness、前线产品发现、程序系统学习、Fable 5 自我纠错 loop、Copilot citation-verified memory 与 harness memory 横向综述。查找具体来源时，优先从来源索引反查，而不是猜文件名。
 
 ## 实体
 
@@ -41,6 +41,7 @@
 
 ## 维护提醒
 
+- 2026-06-10 增量巡检与补摄入：巡检发现 3 份未摄入 `raw/sources`，本轮按“遇到未摄入 raw 材料自动摄入”处理，新增 [Designing loops with Fable 5](sources/2026-06-10-designing-loops-with-fable-5.md)、[Memory Architecture of GitHub Copilot](sources/2026-06-10-memory-architecture-of-github-copilot.md)、[State of Memory in Agent Harness](sources/2026-06-02-state-of-memory-in-agent-harness.md) 三个 canonical source 页，来源注册表增至 36 条。回写 [Loop Engineering](concepts/loop-engineering.md)、[Agent 学习闭环](concepts/agent-learning-loop.md)、[Agent 记忆系统](concepts/agent-memory-systems.md)、[Harness Engineering](concepts/harness-engineering.md)、[Agent 评测](concepts/agent-evaluation.md)。证据边界：Fable 5 资料是 Anthropic 员工 X 长帖与小规模实验分享；两篇 Mem0 资料是供应商视角综述，应继续补 GitHub / OpenAI / Anthropic / Hermes / OpenClaw 等一手材料。修复后 `raw/sources`、`wiki/sources` 与来源注册表均为 36 条。
 - 2026-06-10 增量巡检与补摄入：巡检发现 iCloud 在本次会话期间陆续把两份新资料同步进仓，`raw/sources` 增至 33 条，而 `wiki/sources` 与来源注册表仍停留在 31 条，缺口为 Addy Osmani 的 `Loop Engineering.`（2026-06-09）与 Claude Code 团队的 `Running an AI-native engineering org`（2026-06-03）。本轮补摄入两份来源：为前者新增 [Loop Engineering](concepts/loop-engineering.md) 概念页并回写 [Harness Engineering](concepts/harness-engineering.md)、[Agent 学习闭环](concepts/agent-learning-loop.md)、[Agentic Engineering](concepts/agentic-engineering.md)；后者折入 [Agentic Engineering](concepts/agentic-engineering.md) 的组织/流程维度，不单独立弱页。修复后 `raw/sources`、`wiki/sources` 与来源注册表均为 33 条，67 个 wiki Markdown 页面范围内的内部链接校验通过。证据边界：两份均为单一作者/单一团队的早期自述（Loop Engineering 作者本人持保留态度，AI-native org 来自 Claude 提供方），已在各自来源页标注，不作稳定共识处理。
 - 2026-06-09 增量巡检确认：`raw/sources`、`wiki/sources` 与来源注册表均为 31 条；64 个 wiki Markdown 页面范围内的内部链接校验通过；目录索引覆盖全部 concepts/entities/analyses 内容页；31 个 source 页均有必需 frontmatter、`## 受影响页面` 与可回溯 raw 引用；2 份 `raw/assets` 均由 raw 指针笔记接回来源页。本轮未发现需要立即修正的事实冲突、断链或来源映射错误；后续空白仍集中在 `Knowledge as Code`、`Error-Driven Context Refinement`、搜索原语、Trace / 可观测性、ACI 工具设计和推理系统一手材料。
 - 2026-05-23 晚间巡检确认：`raw/sources`、`wiki/sources` 与来源注册表均为 31 条；64 个 wiki Markdown 页面范围内的内部链接校验通过；目录索引覆盖全部 concepts/entities/analyses 内容页；31 个 source 页均有 `## 受影响页面` 与可回溯 raw 引用；2 份 `raw/assets` 均由 raw 指针笔记接回来源页。

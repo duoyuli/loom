@@ -13,7 +13,10 @@ sources:
   - ../sources/2026-04-06-the-anatomy-of-an-agent-harness.md
   - ../sources/2026-04-08-systems-engineering-building-agentic-software-that-works系统工程-构建能工作的代理软件.md
   - ../sources/2026-05-21-用于自学习自主-agents-的-memory-与-dreaming.md
-updated: 2026-05-23
+  - ../sources/2026-06-10-memory-architecture-of-github-copilot.md
+  - ../sources/2026-06-02-state-of-memory-in-agent-harness.md
+  - ../sources/2026-06-10-designing-loops-with-fable-5.md
+updated: 2026-06-10
 ---
 
 Agent 记忆系统指的是 Agent 在当前上下文窗口之外，用来持续保存、检索和重用状态的一整套机制。它不是单个"记忆库"或单次向量检索，而是同时包含写入规则、存储分层、检索策略、整理与遗忘机制、治理层和跨时间演化表示的外部状态层。Memory 的核心不是"把过去留下来"，而是**治理过去如何进入现在**。
@@ -170,6 +173,19 @@ Reflexion、ExpeL、ReMe 等工作都在回答同一个问题：经历如何不�
 - Dreaming 则把记忆管理从主任务 loop 中拆出来：它分析 session transcripts 与现有 memory，识别重复错误、低效模式、碎片化和冗余，再产出更有组织的 memory snapshot。
 - 这补强了本页对“整理/维护链路”的判断：成熟 Memory 不只在执行中写入，还需要异步、可审计、可验证的后台 curation；否则多 Agent 系统只会把局部经验堆成组织级噪音。
 
+## 新增视角：Citation-verified memory 与横向 harness memory 地图
+
+- 新摄入的 Copilot Memory 二手解读给出一个很具体的对象模型：单条 memory 至少包含 `subject / fact / citations / reason`，并把事实锚定到文件与行号。它补强了本页“记忆不应只是文本块，而应是可冲突处理、可排序、可退场的状态对象”的判断。
+- 更重要的是 just-in-time citation verification：memory 不是被召回就直接进入行动，而是在使用前回到当前代码分支验证引用是否仍支持该事实；若代码已变，旧 memory 应退场或被修正。这把 staleness 从隐性污染变成了显式 gate。
+- `State of Memory in Agent Harness` 又把横向比较轴补出来：Claude Code、Managed Agents、Codex、Copilot、OpenClaw、Hermes、Windsurf、Devin 等实现差异很大，但短板反复集中在 bounded/local storage、keyword retrieval、harness-scoped memory、弱 staleness 处理和隔离不足。
+- 这两篇 Mem0 资料都带供应商叙事，适合作为问题地图；关键产品细节仍需要回到 GitHub、OpenAI、Anthropic、Hermes、OpenClaw 等一手文档核对。
+
+## 新增视角：Memory 只有被验证和咨询才进入闭环
+
+- `Designing loops with Fable 5` 把 memory 用法拆成 `fail -> investigate -> verify -> distill -> consult`。这条链路说明，跨 session memory 如果只停在失败笔记或猜测层，并不会真正改善下一次任务。
+- 对 Agent 记忆系统而言，最有价值的不是“写入了什么”，而是写入后有没有被调查、验证、抽象成规则，并在后续任务开始时优先咨询。
+- 这也把 memory evaluation 从 recall 推向 action utility：系统不仅要记得旧事实，还要证明这些记忆能让未来行动少走弯路。
+
 ## 评估
 
 Memory 的评估不应只测"能否想起"，还要测：
@@ -198,7 +214,7 @@ Memory 的评估不应只测"能否想起"，还要测：
 - Raw 和 Derived 必须同时持有，并维持可追溯路径；二选一会导致要么太重要么漂移。
 - 遗忘不是删除，是依赖传播意识的谱系清算。
 - Memory 的高级形态不是更会存，而是更会治理。
-- 当前知识库的证据已覆盖治理、生命周期、文件系统式共享 memory 和 Dreaming 式离线优化样本，但跨框架一手对照仍明显不足；尤其缺少 ChatGPT Memory、LangMem、NotebookLM 等不同产品边界的系统比较。
+- 当前知识库的证据已覆盖治理、生命周期、文件系统式共享 memory、Dreaming 式离线优化、Copilot citation-verified memory 二手样本，以及 harness memory 横向问题地图；但跨框架一手对照仍明显不足，尤其缺少 GitHub Copilot Memory 官方材料、Codex / Claude Code / Hermes / OpenClaw 的逐项核对，以及 ChatGPT Memory、LangMem、NotebookLM 等不同产品边界的系统比较。
 
 ## 来源
 
@@ -212,6 +228,9 @@ Memory 的评估不应只测"能否想起"，还要测：
 - [The Anatomy of an Agent Harness](../sources/2026-04-06-the-anatomy-of-an-agent-harness.md)
 - [Systems Engineering: Building Agentic Software That Works系统工程：构建能工作的代理软件](../sources/2026-04-08-systems-engineering-building-agentic-software-that-works系统工程-构建能工作的代理软件.md)
 - [用于自学习自主 Agents 的 Memory 与 Dreaming](../sources/2026-05-21-用于自学习自主-agents-的-memory-与-dreaming.md)
+- [Memory Architecture of GitHub Copilot](../sources/2026-06-10-memory-architecture-of-github-copilot.md)
+- [State of Memory in Agent Harness](../sources/2026-06-02-state-of-memory-in-agent-harness.md)
+- [Designing loops with Fable 5](../sources/2026-06-10-designing-loops-with-fable-5.md)
 
 ## 开放问题
 
@@ -220,3 +239,4 @@ Memory 的评估不应只测"能否想起"，还要测：
 - 五种架构哲学之间的横向对照（ChatGPT Memory、LangMem、Letta 等）仍是明显空白。
 - 多 Agent 记忆共享已有 Anthropic Memory 的平台样本，但 Dreaming 输出如何验证、如何与人工维护组织知识冲突调解，仍缺少更细资料。
 - 程序性记忆（Skills）蒸馏出错时的检测与纠正机制目前没有专项资料。
+- Copilot 的 citation-verified memory、Codex 本地记忆、Claude Code auto-memory、Hermes/OpenClaw 内建记忆都需要补一手资料后再做正式横向 comparison。

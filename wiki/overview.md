@@ -6,7 +6,7 @@
   - 入口
   - 地图
 最近更新: 2026-06-10
-来源数: 33
+来源数: 36
 ---
 
 # 总览
@@ -27,6 +27,8 @@
 
 - 当前第一批内容聚焦于 AI Agent 工作流的长期结构，而不是短期工具测评。
 - 新摄入的 Addy Osmani `Loop Engineering.` 把编排视角抬高一层：在 [Harness Engineering](concepts/harness-engineering.md) 之上新增 [Loop Engineering](concepts/loop-engineering.md)，用自动化、worktree、Skills、连接器、子 Agent 和磁盘记忆设计“替你提示 Agent 的循环”，并回写 Agent 学习闭环与 Agentic Engineering。需保留证据边界：这是单一作者的早期、自我保留判断。
+- 新摄入的 `Designing loops with Fable 5` 把 Loop Engineering 的运行时形状补得更细：`/goal`、Outcomes、rubric、独立 grader 子 Agent、sandbox、日志轮询和 mounted memory 共同构成自我纠错 loop；证据边界是 Anthropic 员工的 X 长帖与小规模实验分享，不把性能数值当稳定基准。
+- 新摄入的两篇 Mem0 资料，把 [Agent 记忆系统](concepts/agent-memory-systems.md) 推进到生产样本和横向地图：Copilot Memory 的 `subject / fact / citations / reason` 与 just-in-time citation verification，补强“记忆使用前应回到当前环境验证”；`State of Memory in Agent Harness` 则把 Claude Code、Managed Agents、Codex、Copilot、OpenClaw、Hermes 等实现放到 bounded storage、检索方式、作用域、staleness 和隔离这组轴上。需保留证据边界：两篇都是供应商视角综述，应继续补一手文档。
 - 新摄入的 Claude Code 团队 `Running an AI-native engineering org`，把 [Agentic Engineering](concepts/agentic-engineering.md) 推进到组织/流程层：当写代码变便宜，瓶颈转移到验证、评审和安全，规划转向 JIT、角色边界模糊、评审改为 trust-but-verify，并用 onboarding ramp / PR cycle time / Claude-assisted commits 三指标观察流程是否生效。本轮折入 Agentic Engineering，不单独立弱页；证据边界是单一团队自述、来自 Claude 提供方。
 - 新摄入的 `Learning Beyond Gradients` 把 Agentic Engineering 的学习对象继续推进到软件系统本身：新建 [Heuristic Learning](concepts/heuristic-learning.md)，用 `policy / state / feedback / trials / replay / memory / update mechanism` 描述 coding agent 如何通过测试、日志、视频回放和实验记录维护可解释程序策略。
 - 新摄入的 FDE 材料，把 AI Agent 产品化继续推进到组织层：真正的 [Forward Deployed Engineer](concepts/forward-deployed-engineer.md) 不是咨询或实施换名，而是把客户现场的真实工作流发现回流为平台能力的产品发现循环。
@@ -100,7 +102,7 @@
 - 训练栈已拆出“数据配方”和“系统约束”，但 `蒸馏与专用化` 仍未独立成页。
 - `Jagged Intelligence` 已作为概念立页，但其原始出处和不同模型代际的比较材料仍未单独摄入。
 - `Agent Session Management` 已开始有第二条来自真实项目推进的样本，但仍缺 Cursor、Codex CLI、OpenHands 等工具的横向对照。
-- `Agent 记忆系统` 已覆盖 CoALA、治理边界、生命周期字段、Mem0 路线和 Anthropic Memory / Dreaming 平台样本，但 ChatGPT Memory、LangMem、NotebookLM 或更多开源框架的一手对照材料仍明显不足。
+- `Agent 记忆系统` 已覆盖 CoALA、治理边界、生命周期字段、Mem0 路线、Anthropic Memory / Dreaming 平台样本、Copilot citation-verified memory 二手解读和 harness memory 横向问题地图，但 GitHub Copilot Memory 官方材料、Codex/Claude Code/Hermes/OpenClaw 一手对照，以及 ChatGPT Memory、LangMem、NotebookLM 等产品边界仍明显不足。
 - `信息分层设计` 已立页，但目前仍主要由 Claude Skills 这一路材料支撑，缺少代码库导航、数据库摘要、API 设计等更多一手案例。
 - 推理系统已单独立页，并补入 `prefill / decode / KV Cache / Prompt Cache` 的基础边界；但仍缺 vLLM、PagedAttention、TensorRT-LLM、speculative decoding 和供应商 prompt caching 官方文档等一手材料。
 - agentic software 的系统工程视角已补入 Agentic Engineering / Harness / Context / Memory，但尚未整理成稳定 synthesis 页；Dash 是否值得成为实体页也仍需更多材料。
@@ -125,6 +127,9 @@
 
 ## 来源
 
+- [Designing loops with Fable 5](sources/2026-06-10-designing-loops-with-fable-5.md)
+- [Memory Architecture of GitHub Copilot](sources/2026-06-10-memory-architecture-of-github-copilot.md)
+- [State of Memory in Agent Harness](sources/2026-06-02-state-of-memory-in-agent-harness.md)
 - [Loop Engineering.](sources/2026-06-09-loop-engineering.md)
 - [Running an AI-native engineering org](sources/2026-06-03-running-an-ai-native-engineering-org.md)
 - [从第一性原理思考 Agentic Engineering](sources/2026-04-23-从第一性原理思考-agentic-engineering.md)

@@ -1,5 +1,9 @@
 .DS_Store
+
 .obsidian/
+
+.codex/
+.claude/
+.claudian/
 .omx/
-.codex/*
-.claude/*
+.omo/

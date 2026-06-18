@@ -1,5 +1,21 @@
 # 更新日志
 
+## [2026-06-19 01:13] 巡检 | 增量结构与来源映射
+
+- 检查：`raw/sources` 36 条、`wiki/sources` 来源页 36 条、`wiki/sources/index.md` 注册表 36 条，未发现未摄取材料、漏登记、重复映射、canonical 路径漂移或 raw/source 数量漂移。
+- 检查：`wiki/` 当前 70 个 Markdown 页面范围内，去除代码块与行内代码示例后，882 个内部 Markdown / wiki 链接校验通过；`concepts / entities / analyses` 目录索引覆盖全部内容页。
+- 检查：36 个 source 页面均有必需 frontmatter、`## 受影响页面` 与可回溯 raw 引用；`raw/assets` 2 份 PDF 均由 `raw/sources` 指针笔记接回来源页，未发现资产绕过 `raw/sources` 的旁路。
+- 结构判断：本轮未发现新的事实冲突、来源映射错误、重复概念、孤页或索引漂移；仅校正上一轮未提交巡检记录中的内部链接计数，并继续保留实体索引来源入口修复。
+- 后续空白：`Knowledge as Code`、`Error-Driven Context Refinement`、搜索原语、Trace / 可观测性、ACI 工具设计和主流推理系统一手材料仍是后续更值得补的研究方向。
+
+## [2026-06-18 15:28] 巡检 | 增量结构与来源映射
+
+- 检查：`raw/sources` 36 条、`wiki/sources` 来源页 36 条、`wiki/sources/index.md` 注册表 36 条，未发现未摄取材料、漏登记、重复映射、canonical 路径漂移或 raw/source 数量漂移。
+- 检查：`wiki/` 当前 70 个 Markdown 页面范围内，去除代码块与行内代码示例后，882 个内部 Markdown / wiki 链接校验通过；`concepts / entities / analyses` 目录索引覆盖全部内容页。
+- 检查：36 个 source 页面均有必需 frontmatter、`## 受影响页面` 与可回溯 raw 引用；`raw/assets` 2 份 PDF 均由 `raw/sources` 指针笔记接回来源页，未发现资产绕过 `raw/sources` 的旁路。
+- 修复：`wiki/entities/index.md` 中“来源索引”原先指向总索引的 `#来源` 锚点，本轮改为直接指向 `../sources/index.md`，避免实体目录反查来源时绕回总导航。
+- 后续空白：`Knowledge as Code`、`Error-Driven Context Refinement`、搜索原语、Trace / 可观测性、ACI 工具设计和主流推理系统一手材料仍是后续更值得补的研究方向。
+
 ## [2026-06-16 00:05] 巡检 | 增量结构与来源映射
 
 - 检查：`raw/sources` 36 条、`wiki/sources` 来源页 36 条、`wiki/sources/index.md` 注册表 36 条，未发现未摄取材料、漏登记、重复映射、canonical 路径漂移或 raw/source 数量漂移。

@@ -26,6 +26,6 @@
 ## 相关页面
 
 - [总索引](../index.md)
-- [来源索引](../index.md#来源)
+- [来源索引](../sources/index.md)
 - [概念索引](../concepts/index.md)
 - [分析索引](../analyses/index.md)

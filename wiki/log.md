@@ -1,6 +1,6 @@
 # 更新日志
 
-## [2026-06-19 01:13] 巡检 | 增量结构与来源映射
+## [2026-06-19 00:07] 巡检 | 增量结构与来源映射
 
 - 检查：`raw/sources` 36 条、`wiki/sources` 来源页 36 条、`wiki/sources/index.md` 注册表 36 条，未发现未摄取材料、漏登记、重复映射、canonical 路径漂移或 raw/source 数量漂移。
 - 检查：`wiki/` 当前 70 个 Markdown 页面范围内，去除代码块与行内代码示例后，882 个内部 Markdown / wiki 链接校验通过；`concepts / entities / analyses` 目录索引覆盖全部内容页。
